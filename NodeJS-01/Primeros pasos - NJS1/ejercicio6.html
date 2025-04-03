@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Imágenes con JavaScript</title>
+</head>
+<body>
+    <h1>Ejemplo de mostrar imágenes con JavaScript</h1>
+    
+    <!-- Contenedor donde se agregará la imagen mediante JavaScript -->
+    <div id="contenedorImagen"></div>
+
+    <script>
+        // Crear el elemento <img> dinámicamente
+        var img = document.createElement("img");
+
+        // Establecer el atributo src con la URL de la imagen
+        img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt2VuTn_m6-BnuKWMIt0cudLFfHaNJ9Y6VvA&s"; // URL de la imagen
+        img.alt = "Mostrar PNG o JPEG"; // Establecer una descripción alternativa para la imagen
+
+        // Establece el tamaño de la imagen 
+        img.style.width = "300px"; // Cambiar el ancho de la imagen a 300px
+
+        // Añadir la imagen al contenedor con el id "contenedorImagen" en el DOM
+        document.getElementById("contenedorImagen").appendChild(img);
+    </script>
+</body>
+</html>

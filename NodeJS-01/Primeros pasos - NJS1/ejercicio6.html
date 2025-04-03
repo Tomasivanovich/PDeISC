@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Imágenes con JavaScript</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        /* Contenedor de la imagen */
+        #contenedorImagen {
+            width: 90%; /* El contenedor ocupa el 90% del ancho */
+            max-width: 600px; /* Tamaño máximo para evitar que se haga demasiado grande */
+            text-align: center; /* Centra la imagen */
+            margin-top: 20px;
+        }
+
+        /* Imagen responsiva */
+        #contenedorImagen img {
+            width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+            height: auto; /* Mantiene la relación de aspecto */
+            border-radius: 10px; /* Bordes redondeados opcionales */
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo de mostrar imágenes con JavaScript</h1>
+    
+    <!-- Contenedor donde se agregará la imagen mediante JavaScript -->
+    <div id="contenedorImagen"></div>
+
+    <script>
+        // Crear el elemento <img> dinámicamente
+        var img = document.createElement("img");
+
+        // Establecer el atributo src con la URL de la imagen
+        img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt2VuTn_m6-BnuKWMIt0cudLFfHaNJ9Y6VvA&s"; // URL de la imagen
+        img.alt = "Mostrar PNG o JPEG"; // Establecer una descripción alternativa para la imagen
+
+        // Añadir la imagen al contenedor con el id "contenedorImagen" en el DOM
+        document.getElementById("contenedorImagen").appendChild(img);
+    </script>
+</body>
+</html>

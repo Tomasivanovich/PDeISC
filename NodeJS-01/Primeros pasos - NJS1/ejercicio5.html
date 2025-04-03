@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones Aritméticas</title>
+    <style>
+        /* Estilos generales para el cuerpo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Estilos para el contenedor */
+        .container {
+            padding: 20px;
+            max-width: 100%;
+            width: 80%; /* Máximo 80% del ancho en pantallas grandes */
+        }
+
+        /* Estilos para la tabla */
+        table {
+            width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e0f7fa;
+        }
+
+        /* Estilos para el encabezado */
+        .header {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Media query para pantallas pequeñas */
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px; /* Reducir el tamaño de fuente */
+            }
+
+            th, td {
+                padding: 8px; /* Reducir el espacio en las celdas */
+            }
+
+            .header {
+                font-size: 20px; /* Reducir el tamaño del título */
+            }
+        }
+
+        /* Media query para pantallas muy pequeñas (móviles) */
+        @media (max-width: 480px) {
+            .container {
+                width: 95%; /* Dejar más espacio para la tabla en pantallas pequeñas */
+            }
+
+            table {
+                font-size: 12px; /* Reducir aún más el tamaño de la fuente */
+            }
+
+            th, td {
+                padding: 6px; /* Menos espacio en las celdas */
+            }
+
+            .header {
+                font-size: 18px; /* Reducir aún más el tamaño del título */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="header">Resultados de Operaciones Aritméticas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Operación</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody id="resultados">
+                <!-- Los resultados se agregarán aquí con JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Funciones para realizar las operaciones matemáticas
+        function suma(a, b) {
+            return a + b;  
+        }
+        function resta(a, b) {
+            return a - b;  
+        }
+        function multiplicacion(a, b) {
+            return a * b;  
+        }
+        function division(a, b) {
+            if (b !== 0) {
+                return a / b;  
+            } else {
+                return "Error: División por 0";  
+            }
+        }
+
+        // Función para agregar los resultados a la tabla
+        function agregarResultados() {
+            const resultados = document.getElementById('resultados');
+            const operaciones = [
+                { nombre: 'Suma', resultado: suma(5, 3) },
+                { nombre: 'Resta', resultado: resta(8, 6) },
+                { nombre: 'Multiplicación', resultado: multiplicacion(3, 11) },
+                { nombre: 'División', resultado: division(30, 5) }
+            ];
+
+            operaciones.forEach(operacion => {
+                const row = document.createElement('tr');
+                const celdaOperacion = document.createElement('td');
+                celdaOperacion.textContent = operacion.nombre;
+                const celdaResultado = document.createElement('td');
+                celdaResultado.textContent = operacion.resultado;
+                row.appendChild(celdaOperacion);
+                row.appendChild(celdaResultado);
+                resultados.appendChild(row);
+            });
+        }
+
+        // Llama a la función para agregar los resultados al cargar la página
+        agregarResultados();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+/* Establece el box-sizing para todos los elementos */
+* {
+    box-sizing: border-box; /* Asegura que los márgenes y el padding no afecten al tamaño del contenedor */
+  }
+  
+  /* Estilo del body */
+  body {
+    font-family: 'Quicksand', sans-serif; /* Fuente personalizada */
+    background: linear-gradient(to right, #e3f2fd, #ffffff); /* Fondo de gradiente */
+    margin: 0;
+    padding: 40px; /* Espaciado alrededor de la página */
+    color: #333; /* Color de texto */
+  }
+  
+  /* Estilo del título principal */
+  h1 {
+    text-align: center; /* Centra el título */
+    font-weight: 600; /* Negrita */
+    font-size: 2rem; /* Tamaño de fuente */
+    color: #0077cc; /* Color del texto */
+    margin-bottom: 30px; /* Espacio debajo del título */
+  }
+  
+  /* Estilo del formulario */
+  form {
+    max-width: 550px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    padding: 25px; /* Espaciado interno del formulario */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 8px 16px rgba(0, 119, 204, 0.1); /* Sombra suave */
+  }
+  
+  /* Estilo para las etiquetas de los campos */
+  label {
+    display: block; /* Asegura que cada label ocupe una línea */
+    margin-top: 15px; /* Espacio superior */
+    font-weight: 600; /* Negrita */
+  }
+  
+  /* Estilos comunes para los campos de entrada */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select {
+    width: 100%; /* Asegura que los inputs ocupen el 100% del ancho disponible */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 6px; /* Espacio superior */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Sombra interna sutil */
+    transition: all 0.2s ease-in-out; /* Transición suave para efectos de hover/focus */
+  }
+  
+  /* Efecto al hacer foco en un input o select */
+  input:focus,
+  select:focus {
+    outline: none; /* Elimina el contorno de foco */
+    border-color: #0077cc; /* Cambia el color del borde */
+    box-shadow: 0 0 4px rgba(0, 119, 204, 0.3); /* Sombra azul al hacer foco */
+  }
+  
+  /* Estilos para los grupos de radio y checkbox */
+  .radio-group,
+  .checkbox-group {
+    margin-top: 5px; /* Espacio superior */
+  }
+  
+  /* Estilo de las etiquetas de los radio buttons y checkboxes */
+  .radio-group label,
+  .checkbox-group label {
+    font-weight: normal; /* Peso normal */
+    display: block; /* Cada uno ocupa su propia línea */
+    margin-top: 6px; /* Espacio superior */
+  }
+  
+  /* Espaciado a la derecha de los radio buttons y checkboxes */
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  /* Estilo del botón */
+  button {
+    margin-top: 25px; /* Espacio superior */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 12px; /* Espaciado interno */
+    background-color: #0077cc; /* Fondo azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    font-weight: 600; /* Negrita */
+    cursor: pointer; /* Cambia el cursor a mano */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+  }
+  
+  /* Estilo al pasar el mouse sobre el botón */
+  button:hover {
+    background-color: #005fa3; /* Cambio de color al hacer hover */
+  }
+  
+  /* Estilo para mostrar los resultados */
+  .resultado {
+    max-width: 550px; /* Ancho máximo */
+    margin: 40px auto; /* Centrado */
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 25px; /* Espaciado interno */
+    border-radius: 15px; /* Bordes redondeados */
+    border-left: 5px solid #0077cc; /* Borde izquierdo azul */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05); /* Sombra suave */
+  }
+  
+  /* Estilo de la lista de resultados */
+  .resultado ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding-left: 0; /* Elimina el padding izquierdo */
+  }
+  
+  /* Estilo de cada ítem en la lista */
+  .resultado li {
+    margin-bottom: 10px; /* Espacio debajo de cada ítem */
+    padding-left: 10px; /* Espacio a la izquierda */
+    position: relative; /* Para posicionar el ícono antes del texto */
+  }
+  
+  /* Agrega un ícono antes de cada ítem de la lista */
+  .resultado li::before {
+    content: '➤'; /* El contenido del ícono */
+    color: #0077cc; /* Color azul */
+    position: absolute; /* Posición absoluta */
+    left: 0; /* Alinea el ícono a la izquierda */
+  }
+  
+  /* ============================
+     Estilos Responsivos para pantallas pequeñas (≤600px)
+     ============================ */
+  @media screen and (max-width: 600px) {
+    /* Ajuste del padding del body en pantallas pequeñas */
+    body {
+      padding: 20px;
+    }
+  
+    /* Ajuste del tamaño de la fuente del título */
+    h1 {
+      font-size: 1.5rem; /* Disminuye el tamaño */
+    }
+  
+    /* Ajustes de padding y bordes redondeados en el formulario y los resultados */
+    form, .resultado {
+      padding: 20px;
+      border-radius: 10px;
+    }
+  
+    /* Ajuste del tamaño de los campos de texto */
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    select {
+      font-size: 0.95rem; /* Disminuye el tamaño de la fuente */
+    }
+  
+    /* Ajuste del tamaño y padding del botón */
+    button {
+      font-size: 0.95rem; /* Disminuye el tamaño de la fuente */
+      padding: 10px; /* Menos padding */
+    }
+  }
+  

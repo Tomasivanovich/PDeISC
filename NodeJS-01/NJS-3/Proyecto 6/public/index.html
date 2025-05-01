@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+  <title>Formulario de Registro</title> <!-- Título de la página -->
+  <link rel="stylesheet" href="style.css"> <!-- Enlace al archivo CSS externo para estilo -->
+</head>
+<body>
+
+  <h1>Formulario de Registro</h1> <!-- Título principal de la página -->
+
+  <form id="registro-form"> <!-- Formulario para registro de datos -->
+    <label>Nombre:
+      <input type="text" name="nombre" required> <!-- Campo de texto para el nombre -->
+    </label>
+
+    <label>Edad:
+      <input type="number" name="edad" required> <!-- Campo de número para la edad -->
+    </label>
+
+    <label>Email:
+      <input type="email" name="email" required> <!-- Campo de correo electrónico -->
+    </label>
+
+    <label>Género:</label>
+    <div class="radio-group"> <!-- Grupo de botones de radio para seleccionar el género -->
+      <label><input type="radio" name="genero" value="Masculino" required> Masculino</label><br> <!-- Opción Masculino -->
+      <label><input type="radio" name="genero" value="Femenino"> Femenino</label> <!-- Opción Femenino -->
+    </div>
+
+    <label>País:
+      <select name="pais" required> <!-- Campo de selección para elegir el país -->
+        <option value="">Seleccionar</option> <!-- Opción por defecto -->
+        <option value="Argentina">Argentina</option> <!-- Opción de país: Argentina -->
+        <option value="México">México</option> <!-- Opción de país: México -->
+        <option value="España">España</option> <!-- Opción de país: España -->
+      </select>
+    </label>
+
+    <label>Intereses:</label>
+    <div class="checkbox-group"> <!-- Grupo de casillas de verificación (checkbox) para los intereses -->
+      <label><input type="checkbox" name="intereses" value="Deporte"> Deporte</label><br> <!-- Opción Deporte -->
+      <label><input type="checkbox" name="intereses" value="Música"> Música</label><br> <!-- Opción Música -->
+      <label><input type="checkbox" name="intereses" value="Tecnología"> Tecnología</label> <!-- Opción Tecnología -->
+    </div>
+
+    <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
+  </form>
+
+  <div class="resultado" id="resultado"> <!-- Div donde se mostrarán los resultados del registro -->
+    <strong>Resultado del registro:</strong><br/>
+  </div>
+
+  <script src="script.js"></script> <!-- Enlace al archivo JS que contiene la lógica del formulario -->
+</body>
+</html>

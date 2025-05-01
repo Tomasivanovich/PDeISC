@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Codificación de caracteres para una correcta visualización -->
+  <meta charset="UTF-8" />
+  
+  <!-- Meta etiqueta para hacer el sitio responsive en dispositivos móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Título de la página -->
+  <title>Componente 5 - Submit</title>
+
+  <!-- Enlace al archivo CSS para los estilos de la página -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Título principal para indicar el propósito de la página -->
+  <h2>Componente 5 - Evento Submit</h2>
+
+  <!-- Instrucciones para el usuario -->
+  <p>Ingresa tu nombre:</p>
+
+  <!-- Formulario que captura el nombre del usuario -->
+  <form id="formulario" onsubmit="manejarSubmit(event)">
+    <!-- Campo de entrada para el nombre con un texto de sugerencia -->
+    <input type="text" id="nombre" placeholder="Tu nombre" required />
+
+    <!-- Botón para enviar el formulario -->
+    <button type="submit">Enviar</button>
+  </form>
+
+  <!-- Elemento para mostrar mensajes después de que el formulario es enviado -->
+  <p id="mensaje"></p>
+
+  <!-- Enlace al archivo JavaScript externo para manejar la lógica del evento -->
+  <script src="script.js"></script>
+
+</body>
+</html>

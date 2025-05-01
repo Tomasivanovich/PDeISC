@@ -1,0 +1,110 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los botones */
+button {
+    margin: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para los textos de los componentes */
+p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Estilo para el select */
+select {
+    padding: 8px 12px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos específicos para cada componente */
+#texto {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#teclaPresionada {
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+#opcionSeleccionada {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#mensaje {
+    font-size: 1.2rem;
+    color: #28a745;
+}
+
+/* Estilo para la estructura */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+}

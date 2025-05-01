@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Codificación de caracteres para una correcta visualización -->
+  <meta charset="UTF-8" />
+
+  <!-- Meta etiqueta para hacer el sitio responsive en dispositivos móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Título de la página -->
+  <title>Componente 2 - Mouseover</title>
+
+  <!-- Enlace al archivo CSS para los estilos de la página -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Título principal para indicar el propósito de la página -->
+  <h2>Componente 2 - Evento Mouseover</h2>
+
+  <!-- Instrucciones para el usuario -->
+  <p>Pasa el ratón sobre el siguiente texto:</p>
+
+  <!-- Texto sobre el que se activará el evento mouseover -->
+  <p id="textoHover" onmouseover="manejarMouseover();" style="cursor: pointer;" >
+    Pasa el ratón sobre mí
+  </p>
+  
+  <!-- Contenedor donde se insertará dinámicamente un H1 como resultado del evento -->
+  <div id="contenedor"></div>
+
+  <!-- Enlace al archivo JavaScript para manejar la lógica del evento -->
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Configuración para diseño responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Componente 2 - Mouseover</title>
+  <!-- Enlace al archivo de estilos CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Título del componente -->
+  <h2>Componente 2 - Evento Mouseover</h2>
+
+  <!-- Instrucción para el usuario -->
+  <p>Pasa el ratón sobre el siguiente texto:</p>
+
+  <!-- Elemento de texto donde se activa el evento onmouseover -->
+  <p id="textoHover" onmouseover="manejarMouseover();" style="cursor: pointer;" >Pasa el ratón sobre mí</p>
+  
+  <!-- Contenedor donde se insertará dinámicamente un H1 cuando se active el evento -->
+  <div id="contenedor"></div>
+
+  <!-- Enlace al archivo JavaScript que maneja el evento mouseover -->
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Diseño responsive para dispositivos móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Componente 4 - Change</title>
+  <!-- Enlace al archivo de estilos CSS externo -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Título del componente -->
+  <h2>Componente 4 - Evento Change</h2>
+
+  <!-- Instrucción para el usuario -->
+  <p>Selecciona una opción:</p>
+
+  <!-- Menú desplegable con evento onchange que ejecuta la función manejarChange() -->
+  <select id="opcionesSelect" onchange="manejarChange()">
+    <option value="opcion1">Opción 1</option>
+    <option value="opcion2">Opción 2</option>
+    <option value="opcion3">Opción 3</option>
+  </select>
+
+  <!-- Elemento donde se mostrará la opción seleccionada -->
+  <p id="opcionSeleccionada"></p>
+
+  <!-- Enlace al script JS donde se define la lógica del evento -->
+  <script src="script.js"></script>
+
+</body>
+</html>

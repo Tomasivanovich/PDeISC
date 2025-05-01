@@ -1,0 +1,151 @@
+/* Estilo global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Establece el box-sizing a border-box para que el padding y el borde no afecten el tamaño total de los elementos */
+}
+
+/* Estilo para el cuerpo del documento */
+body {
+  font-family: 'Arial', sans-serif; /* Establece la fuente para todo el cuerpo */
+  background: #f7f7f7; /* Color de fondo claro */
+  padding: 20px; /* Espaciado alrededor de la página */
+  color: #333; /* Color del texto */
+}
+
+/* Estilo para el título principal */
+h1 {
+  font-size: 2rem; /* Tamaño de fuente grande */
+  text-align: center; /* Centra el texto */
+  margin-bottom: 30px; /* Espaciado debajo del título */
+  color: #0077cc; /* Color azul para el título */
+}
+
+/* Estilo para los botones */
+button {
+  background-color: #0077cc; /* Color de fondo azul para los botones */
+  color: white; /* Color del texto blanco */
+  border: none; /* Elimina el borde predeterminado */
+  padding: 10px 20px; /* Espaciado dentro del botón */
+  margin: 5px; /* Espaciado entre los botones */
+  font-size: 1rem; /* Tamaño de la fuente en el botón */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a mano cuando se pasa por encima */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave para los efectos de hover */
+}
+
+/* Efecto hover para los botones */
+button:hover {
+  background-color: #005fa3; /* Color de fondo más oscuro cuando el botón es hovered */
+  transform: scale(1.05); /* Efecto de aumentar ligeramente el tamaño del botón */
+}
+
+/* Estilo para el contenedor de los objetos dinámicos */
+#contenedor {
+  margin-top: 20px; /* Espaciado superior */
+  border: 1px solid #ccc; /* Borde gris alrededor del contenedor */
+  padding: 20px; /* Espaciado interior */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+}
+
+/* Estilo para los párrafos dentro del contenedor */
+#contenedor p {
+  font-size: 1rem; /* Tamaño de fuente para los párrafos */
+  margin: 10px 0; /* Espaciado arriba y abajo */
+}
+
+/* Estilo para las imágenes dentro del contenedor */
+#contenedor img {
+  max-width: 100%; /* Hace que la imagen se ajuste al contenedor sin salirse de su tamaño */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin: 10px 0; /* Espaciado arriba y abajo de las imágenes */
+  border-radius: 8px; /* Bordes redondeados para las imágenes */
+}
+
+/* Estilo para las listas dentro del contenedor */
+#contenedor ul {
+  list-style-type: square; /* Muestra los elementos de la lista con un marcador cuadrado */
+  margin-left: 20px; /* Espaciado a la izquierda para alinear la lista */
+}
+
+#contenedor li {
+  margin-bottom: 10px; /* Espaciado inferior entre los elementos de la lista */
+}
+
+/* Estilo para los inputs dentro del contenedor */
+#contenedor input {
+  padding: 10px; /* Espaciado interior */
+  margin: 10px 0; /* Espaciado arriba y abajo */
+  border: 1px solid #ccc; /* Borde gris */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 100%; /* Hace que el input ocupe todo el ancho disponible */
+  box-sizing: border-box; /* Incluye el padding y borde dentro del tamaño total */
+}
+
+/* Estilo cuando el input tiene el foco (está seleccionado) */
+#contenedor input:focus {
+  border-color: #0077cc; /* Cambia el borde a azul cuando el input tiene foco */
+  outline: none; /* Elimina el borde de enfoque predeterminado */
+}
+
+/* ============================
+   Diseño Responsivo
+ =========================== */
+
+/* Estilo para pantallas más pequeñas, como tabletas o móviles grandes */
+@media screen and (max-width: 768px) {
+  /* Ajustes en el título */
+  h1 {
+    font-size: 1.6rem; /* Disminuye el tamaño de la fuente del título */
+    margin-bottom: 20px; /* Ajusta el espaciado inferior */
+  }
+
+  /* Ajustes en los botones */
+  button {
+    padding: 8px 16px; /* Reduce el padding de los botones */
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente de los botones */
+  }
+
+  /* Ajustes en el contenedor */
+  #contenedor {
+    padding: 15px; /* Reduce el padding dentro del contenedor */
+  }
+
+  /* Ajustes en los inputs */
+  #contenedor input {
+    font-size: 0.95rem; /* Reduce el tamaño de la fuente en los inputs */
+  }
+
+  /* Ajuste en párrafos y listas */
+  #contenedor p,
+  #contenedor ul {
+    font-size: 0.95rem; /* Reduce el tamaño de la fuente de los párrafos y listas */
+  }
+}
+
+/* Estilo para pantallas muy pequeñas (móviles) */
+@media screen and (max-width: 480px) {
+  /* Ajustes en el título */
+  h1 {
+    font-size: 1.4rem; /* Disminuye aún más el tamaño del título */
+  }
+
+  /* Ajustes en los botones */
+  button {
+    width: 100%;  /* Hace que los botones ocupen todo el ancho disponible */
+    padding: 12px 0; /* Ajusta el padding de los botones */
+    font-size: 1rem; /* Ajusta el tamaño de la fuente */
+  }
+
+  /* Ajustes en los inputs */
+  #contenedor input {
+    font-size: 1rem; /* Ajusta el tamaño de la fuente en los inputs */
+  }
+
+  /* Ajustes en las imágenes */
+  #contenedor img {
+    max-width: 90%;  /* Limita el tamaño de las imágenes en pantallas pequeñas */
+  }
+}

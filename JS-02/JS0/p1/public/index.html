@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario</title>
+  <!-- Enlace al archivo de estilos CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="container">
+  <!-- Título principal -->
+  <h1 class="title">Formulario</h1>
+
+  <!-- Contenedor para mensajes de alerta -->
+  <div id="alerta" class="alerta oculto">
+    <p id="mensaje" class="mensaje"></p>
+  </div>
+
+  <!-- Formulario para ingresar nombre y apellido -->
+  <form id="form" class="formulario" novalidate>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Nombre"
+      required
+      minlength="4"
+      class="input"
+    />
+    <input
+      type="text"
+      name="surname"
+      id="surname"
+      placeholder="Apellido"
+      required
+      minlength="4"
+      class="input"
+    />
+    <button type="submit" class="btn-submit">Enviar</button>
+  </form>
+
+  <!-- Sección para mostrar la lista de usuarios -->
+  <section id="usuarios" class="usuarios-section">
+    <h2>Usuarios</h2>
+    <ul id="lista" class="lista-usuarios"></ul>
+  </section>
+
+  <!-- Script JavaScript principal -->
+  <script src="script.js"></script>
+</body>
+</html>

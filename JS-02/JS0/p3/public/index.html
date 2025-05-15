@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Título principal -->
+    <h1 class="titulo">Formulario</h1>
+
+    <!-- Contenedor de alerta flotante -->
+    <div
+      id="alerta"
+      class="fixed top-2 left-1/2 transform -translate-x-1/2 translate-y-[-50px] transition-transform duration-300 border-2 rounded px-4 py-2 z-50"
+    >
+      <span id="mensaje"></span>
+    </div>
+
+    <!-- Formulario con método POST -->
+    <form action="/sendData" method="POST" id="form" class="formulario">
+      <!-- Grupo 1: Nombre y Apellido -->
+      <div class="grupo grupo-dos">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
+        <input type="text" name="apellido" id="apellido" placeholder="Apellido" />
+      </div>
+
+      <!-- Grupo 2: Edad y Fecha de nacimiento -->
+      <div class="grupo grupo-dos">
+        <input type="number" name="edad" id="edad" placeholder="Edad" />
+        <input type="date" name="nacimiento" id="nacimiento" />
+      </div>
+
+      <!-- Grupo 3: Sexo (radio) y Estado civil (select) -->
+      <div class="grupo grupo-tres">
+        <div class="radio-group">
+          <input type="radio" name="sexo" value="masculino" id="sexo-masculino" />
+          <label for="sexo-masculino">Masculino</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" name="sexo" value="femenino" id="sexo-femenino" />
+          <label for="sexo-femenino">Femenino</label>
+        </div>
+
+        <select name="estado-civil" id="estado-civil">
+          <option value="soltero">Soltero</option>
+          <option value="casado">Casado</option>
+        </select>
+      </div>
+
+      <!-- Grupo 4: Documento y Nacionalidad -->
+      <div class="grupo grupo-dos">
+        <input type="number" name="documento" id="documento" placeholder="Documento" />
+        <input type="text" name="nacionalidad" id="nacionalidad" placeholder="Nacionalidad" />
+      </div>
+
+      <!-- Grupo 5: Teléfono y Email -->
+      <div class="grupo grupo-dos">
+        <input type="tel" name="telefono" id="telefono" placeholder="Teléfono" />
+        <input type="email" name="email" id="email" placeholder="Email" />
+      </div>
+
+      <!-- Grupo 6: Checkbox y cantidad de hijos -->
+      <div class="grupo grupo-dos checkbox-group">
+        <label for="hijos">¿Tiene hijos?</label>
+        <input type="checkbox" name="hijos" id="hijos" />
+        <input
+          type="number"
+          name="cantidad-hijos"
+          id="cantidad-hijos"
+          placeholder="Cantidad de hijos"
+          disabled
+          min="0"
+        />
+      </div>
+
+      <!-- Botón para enviar -->
+      <button type="submit" class="btn-enviar">Enviar</button>
+    </form>
+
+    <!-- Contenedor para mostrar personas registradas -->
+    <div
+      id="usuarios"
+      class="mt-10 p-4 bg-white shadow-md rounded-xl overflow-auto border border-gray-200"
+    >
+      <h2
+        class="text-2xl font-semibold text-violet-700 mb-4 text-center"
+      >
+        Personas Registradas
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm text-left border border-gray-300">
+          <thead class="bg-violet-100 text-violet-700 uppercase text-xs">
+            <tr>
+              <th class="border px-3 py-2">#</th>
+              <th class="border px-3 py-2">Nombre</th>
+              <th class="border px-3 py-2">Apellido</th>
+              <th class="border px-3 py-2">Edad</th>
+              <th class="border px-3 py-2">Nacimiento</th>
+              <th class="border px-3 py-2">Sexo</th>
+              <th class="border px-3 py-2">Estado Civil</th>
+              <th class="border px-3 py-2">Documento</th>
+              <th class="border px-3 py-2">Nacionalidad</th>
+              <th class="border px-3 py-2">Teléfono</th>
+              <th class="border px-3 py-2">Email</th>
+              <th class="border px-3 py-2">Hijos</th>
+              <th class="border px-3 py-2">Cantidad</th>
+            </tr>
+          </thead>
+          <tbody id="lista" class="text-gray-700 bg-white">
+            <!-- Filas generadas con JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

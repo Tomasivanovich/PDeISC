@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro de Libros</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="title">Registro de Libros</h1>
+
+  <div id="alerta" role="alert" aria-live="polite" aria-atomic="true" class="alerta oculto"></div>
+
+  <form id="form" class="formulario" novalidate>
+    <input
+      type="text"
+      id="titulo"
+      name="titulo"
+      placeholder="Título"
+      required
+      minlength="3"
+      aria-label="Título del libro"
+      class="input" />
+    <input
+      type="text"
+      id="autor"
+      name="autor"
+      placeholder="Autor"
+      required
+      aria-label="Autor del libro"
+      class="input" />
+    <input
+      type="text"
+      id="genero"
+      name="genero"
+      placeholder="Género"
+      required
+      aria-label="Género del libro"
+      class="input" />
+    <input
+      type="number"
+      id="anio"
+      name="anio"
+      placeholder="Año de publicación"
+      required
+      min="1500"
+      max="2025"
+      aria-label="Año de publicación del libro"
+      class="input" />
+    <button type="submit" class="btn-submit">Enviar</button> </form>
+
+  <section class="usuarios-section" aria-live="polite" aria-relevant="additions"> <h2>Libros Registrados</h2>
+    <ul id="lista"></ul>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

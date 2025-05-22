@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicios sort() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Manipulación de Arrays con <code>sort()</code></h1>
+
+  <!-- Sección: Array de números -->
+  <section class="card">
+    <h2>Array de números</h2>
+    <div id="arrayNumeros">[ ]</div>
+    <label>
+      Agregar número:
+      <input type="text" id="inputNumero" />
+    </label>
+    <button id="btnAgregarNumero">Agregar número</button>
+  </section>
+
+  <!-- Sección: Array de palabras -->
+  <section class="card">
+    <h2>Array de palabras</h2>
+    <div id="arrayPalabras">[ ]</div>
+    <label>
+      Agregar palabra:
+      <input type="text" id="inputPalabra" />
+    </label>
+    <button id="btnAgregarPalabra">Agregar palabra</button>
+  </section>
+
+  <!-- Sección: Array de objetos -->
+  <section class="card">
+    <h2>Array de objetos <code>{nombre, edad}</code></h2>
+    <div id="arrayPersonas">[ ]</div>
+    <label>
+      Nombre:
+      <input type="text" id="inputNombre" />
+    </label>
+    <label>
+      Edad:
+      <input type="text" id="inputEdad" />
+    </label>
+    <button id="btnAgregarPersona">Agregar persona</button>
+  </section>
+
+  <!-- Ordenar números -->
+  <section class="card">
+    <h2>1. Ordenar números de menor a mayor</h2>
+    <button id="btnOrdenarNumeros">Ordenar números</button>
+    <div id="resultadoNumeros" class="resultado"></div>
+  </section>
+
+  <!-- Ordenar palabras -->
+  <section class="card">
+    <h2>2. Ordenar palabras alfabéticamente</h2>
+    <button id="btnOrdenarPalabras">Ordenar palabras</button>
+    <div id="resultadoPalabras" class="resultado"></div>
+  </section>
+
+  <!-- Ordenar personas -->
+  <section class="card">
+    <h2>3. Ordenar personas por edad</h2>
+    <button id="btnOrdenarPersonas">Ordenar personas</button>
+    <div id="resultadoPersonas" class="resultado"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

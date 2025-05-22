@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Decodificador Secreto con Archivos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Decodificador de Texto Secreto</h1>
+
+  <!-- Formulario para ingresar el texto secreto -->
+  <form id="formSecreto">
+    <label for="secreto">
+      Ingrese su texto secreto (máximo 500 caracteres):
+    </label>
+    <textarea
+      id="secreto"
+      name="secreto"
+      maxlength="500"
+      required
+      placeholder="Ej: Hoy (.sh 22 sal a) (ed asac ne sominuer son) Marcelo.">
+    </textarea>
+    <button type="submit">Decodificar y Guardar</button>
+  </form>
+
+  <!-- Sección donde se mostrará el resultado -->
+  <div id="resultado" style="display: none;">
+    <span class="label">Entrada (guardada en SECRETO.IN):</span>
+    <p id="entrada"></p>
+    <span class="label">Salida (guardada en SECRETO.OUT):</span>
+    <p id="salida"></p>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

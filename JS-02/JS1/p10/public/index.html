@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicios map() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Manipulación de Arrays con <code>map()</code></h1>
+
+  <!-- Sección: Números -->
+  <section class="card">
+    <h2>Array de números</h2>
+    <div id="arrayNumeros">[ ]</div>
+    <label>
+      Agregar número:
+      <input type="text" id="inputNumero" />
+    </label>
+    <button id="btnAgregarNumero">Agregar número</button>
+  </section>
+
+  <!-- Sección: Nombres -->
+  <section class="card">
+    <h2>Array de nombres</h2>
+    <div id="arrayNombres">[ ]</div>
+    <label>
+      Agregar nombre:
+      <input type="text" id="inputNombre" />
+    </label>
+    <button id="btnAgregarNombre">Agregar nombre</button>
+  </section>
+
+  <!-- Sección: Precios -->
+  <section class="card">
+    <h2>Array de precios</h2>
+    <div id="arrayPrecios">[ ]</div>
+    <label>
+      Agregar precio:
+      <input type="text" id="inputPrecio" />
+    </label>
+    <button id="btnAgregarPrecio">Agregar precio</button>
+  </section>
+
+  <!-- Operaciones con map() -->
+  <section class="card">
+    <h2>1. Multiplicar cada número por 3</h2>
+    <button id="btnMultiplicar">Mostrar números multiplicados</button>
+    <div id="resultadoMultiplicar" class="resultado"></div>
+  </section>
+
+  <section class="card">
+    <h2>2. Convertir nombres en mayúsculas</h2>
+    <button id="btnMayusculas">Mostrar nombres en mayúsculas</button>
+    <div id="resultadoMayusculas" class="resultado"></div>
+  </section>
+
+  <section class="card">
+    <h2>3. Agregar 21% de IVA a precios</h2>
+    <button id="btnAgregarIVA">Mostrar precios con IVA</button>
+    <div id="resultadoIVA" class="resultado"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

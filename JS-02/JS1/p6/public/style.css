@@ -1,0 +1,110 @@
+/* Reset básico para márgenes y paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo base del body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  padding: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #34495e;
+}
+
+/* Estilo general para cada sección */
+section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* Títulos secundarios */
+h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Contenedores que muestran arrays o resultados */
+#arrayActual,
+.resultado {
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  min-height: 40px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Labels para inputs con flex vertical */
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: #2c3e50;
+}
+
+/* Inputs tipo texto */
+input[type="text"] {
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  margin-top: 0.3rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* Botones con estilo */
+button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #1c5980;
+}
+
+/* Responsive: ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  section {
+    padding: 1rem;
+  }
+  button {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+  label {
+    font-size: 0.95rem;
+  }
+}

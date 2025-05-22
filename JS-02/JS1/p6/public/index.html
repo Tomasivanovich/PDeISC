@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicios slice() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Manipulación de arrays con slice() en cliente</h1>
+
+  <!-- Sección para mostrar y agregar elementos al array -->
+  <section id="arrayActualSection">
+    <h2>Array actual (números o cadenas):</h2>
+    <div id="arrayActual">[ ]</div>
+    <label for="inputAgregar">
+      Agregar elemento:
+      <input type="text" id="inputAgregar" />
+    </label>
+    <button id="btnAgregar">Agregar</button>
+  </section>
+
+  <!-- Sección para copiar primeros 3 elementos -->
+  <section>
+    <h2>1. Copiar primeros 3 elementos</h2>
+    <button id="btnPrimeros3">Copiar primeros 3</button>
+    <div id="resultadoPrimeros3" class="resultado"></div>
+  </section>
+
+  <!-- Sección para copiar elementos desde posición 2 hasta 4 (inclusive) -->
+  <section>
+    <h2>2. Copiar desde posición 2 hasta la 4 (inclusive)</h2>
+    <button id="btnPos2a4">Copiar posiciones 2 a 4</button>
+    <div id="resultadoPos2a4" class="resultado"></div>
+  </section>
+
+  <!-- Sección para copiar últimos 3 elementos -->
+  <section>
+    <h2>3. Copiar últimos 3 elementos</h2>
+    <button id="btnUltimos3">Copiar últimos 3</button>
+    <div id="resultadoUltimos3" class="resultado"></div>
+  </section>
+
+  <!-- Lógica JS para manejar slice -->
+  <script src="script.js"></script>
+</body>
+</html>

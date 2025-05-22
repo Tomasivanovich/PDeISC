@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicios reduce() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Manipulación de Arrays con <code>reduce()</code></h1>
+
+  <!-- Sección: Array de números -->
+  <section class="card">
+    <h2>Array de números</h2>
+    <div id="arrayNumeros">[ ]</div>
+    <label>
+      Agregar número:
+      <input type="text" id="inputNumero" />
+    </label>
+    <button id="btnAgregarNumero">Agregar número</button>
+  </section>
+
+  <!-- Sección: Array de enteros -->
+  <section class="card">
+    <h2>Array de enteros</h2>
+    <div id="arrayEnteros">[ ]</div>
+    <label>
+      Agregar entero:
+      <input type="text" id="inputEntero" />
+    </label>
+    <button id="btnAgregarEntero">Agregar entero</button>
+  </section>
+
+  <!-- Sección: Array de objetos {precio} -->
+  <section class="card">
+    <h2>Array de objetos <code>{precio}</code></h2>
+    <div id="arrayPrecios">[ ]</div>
+    <label>
+      Precio:
+      <input type="text" id="inputPrecio" />
+    </label>
+    <button id="btnAgregarPrecio">Agregar precio</button>
+  </section>
+
+  <!-- Operación 1: Sumar -->
+  <section class="card">
+    <h2>1. Sumar todos los números</h2>
+    <button id="btnSumar">Sumar números</button>
+    <div id="resultadoSuma" class="resultado"></div>
+  </section>
+
+  <!-- Operación 2: Multiplicar -->
+  <section class="card">
+    <h2>2. Multiplicar todos los enteros</h2>
+    <button id="btnMultiplicar">Multiplicar enteros</button>
+    <div id="resultadoMultiplicar" class="resultado"></div>
+  </section>
+
+  <!-- Operación 3: Total de precios -->
+  <section class="card">
+    <h2>3. Total de precios</h2>
+    <button id="btnTotalPrecios">Mostrar total precios</button>
+    <div id="resultadoTotalPrecios" class="resultado"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

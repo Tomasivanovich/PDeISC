@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agregar datos al array</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+
+  <!-- Sección para agregar animales -->
+  <h2>Agregar un animal</h2>
+  <form id="animalForm">
+    <input
+      type="text"
+      id="animalInput"
+      placeholder="Ingrese un animal"
+      required
+      autocomplete="off"
+    />
+    <button type="submit">Agregar</button>
+  </form>
+  <p id="mensajeAnimal" class="mensaje"></p>
+  <h3>Animales en el array:</h3>
+  <ul id="listaAnimales"></ul>
+
+  <!-- Sección para agregar productos -->
+  <h2>Agregar un producto</h2>
+  <form id="productoForm">
+    <input
+      type="text"
+      id="productoInput"
+      placeholder="Ingrese un producto"
+      required
+      autocomplete="off"
+    />
+    <button type="submit">Agregar</button>
+  </form>
+  <p id="mensajeProducto" class="mensaje"></p>
+  <h3>Productos en el array:</h3>
+  <ul id="listaProductos"></ul>
+
+  <!-- Opciones para eliminar animales -->
+  <h3>¿Desea borrar el último animal ingresado?</h3>
+  <label>
+    <input type="checkbox" id="borrarUltimoAnimalCheckbox" />
+    Confirmar eliminación
+  </label>
+  <button id="eliminarAnimalBtn">Eliminar Último Animal</button>
+
+  <!-- Opciones para eliminar productos -->
+  <h3>¿Desea borrar el último producto ingresado?</h3>
+  <label>
+    <input type="checkbox" id="borrarUltimoProductoCheckbox" />
+    Confirmar eliminación
+  </label>
+  <button id="eliminarProductoBtn">Eliminar Último Producto</button>
+
+  <!-- Opción para eliminar todos los animales -->
+  <h3>¿Desea eliminar todos los animales?</h3>
+  <label>
+    <input type="checkbox" id="eliminarAnimalesCheckbox" />
+    Confirmar eliminación
+  </label>
+  <button id="eliminarAnimalesBtn">Eliminar Todos los Animales</button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body y tipografía */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  max-width: 720px;
+  margin: 1.5rem auto;
+  padding: 1rem 1.5rem;
+  line-height: 1.5;
+}
+
+/* Titulos */
+h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+  color: #1a73e8;
+}
+
+h3 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: #1558d6;
+}
+
+/* Formularios */
+form {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #1a73e8;
+  outline: none;
+}
+
+/* Botones */
+button {
+  background-color: #1a73e8;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #1558d6;
+}
+
+/* Listas */
+ul {
+  margin-left: 1.2rem;
+  margin-bottom: 1rem;
+  color: #444;
+  font-size: 1rem;
+}
+
+ul li {
+  padding: 0.2rem 0;
+}
+
+/* Mensajes */
+.mensaje {
+  min-height: 1.2em;
+  font-weight: 600;
+  color: #2f855a; /* verde */
+  margin-bottom: 0.8rem;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 0.3rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

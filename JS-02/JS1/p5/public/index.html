@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>splice() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Manipulación de array con splice()</h1>
+
+  <!-- Sección para mostrar el array actual y agregar elementos -->
+  <section id="arrayActualSection">
+    <h2>Array actual:</h2>
+    <div id="arrayActual">[ ]</div>
+    <label for="inputAgregar">
+      Agregar elemento:
+      <input type="text" id="inputAgregar" />
+    </label>
+    <button id="btnAgregar">Agregar</button>
+  </section>
+
+  <!-- Sección para eliminar elementos mediante formulario -->
+  <section>
+    <h2>1. Eliminar elementos</h2>
+    <form id="formEliminar">
+      <label for="posicionEliminar">
+        Posición:
+        <input type="number" id="posicionEliminar" name="posicion" min="0" required />
+      </label>
+      <label for="cantidadEliminar">
+        Cantidad a eliminar:
+        <input type="number" id="cantidadEliminar" name="cantidad" min="1" required />
+      </label>
+      <button type="submit">Eliminar</button>
+    </form>
+    <div id="resultadoEliminar" class="resultado"></div>
+  </section>
+
+  <!-- Sección para insertar elementos mediante formulario -->
+  <section>
+    <h2>2. Insertar elemento</h2>
+    <form id="formInsertar">
+      <label for="posicionInsertar">
+        Posición:
+        <input type="number" id="posicionInsertar" name="posicion" min="0" required />
+      </label>
+      <label for="elementoInsertar">
+        Elemento a insertar:
+        <input type="text" id="elementoInsertar" name="elemento" required />
+      </label>
+      <button type="submit">Insertar</button>
+    </form>
+    <div id="resultadoInsertar" class="resultado"></div>
+  </section>
+
+  <!-- Sección para reemplazar elementos mediante formulario -->
+  <section>
+    <h2>3. Reemplazar elementos</h2>
+    <form id="formReemplazar">
+      <label for="posicionReemplazar">
+        Posición:
+        <input type="number" id="posicionReemplazar" name="posicion" min="0" required />
+      </label>
+      <label for="cantidadReemplazar">
+        Cantidad a reemplazar:
+        <input type="number" id="cantidadReemplazar" name="cantidad" min="1" required />
+      </label>
+      <label for="nuevosElementos">
+        Nuevos elementos (separados por coma):
+        <input type="text" id="nuevosElementos" name="nuevos" required />
+      </label>
+      <button type="submit">Reemplazar</button>
+    </form>
+    <div id="resultadoReemplazar" class="resultado"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

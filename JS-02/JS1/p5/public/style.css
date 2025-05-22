@@ -1,0 +1,113 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo base del body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fc;
+  color: #2c3e50;
+  padding: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #34495e;
+}
+
+/* Secciones */
+section {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* Títulos secundarios */
+h2 {
+  margin-bottom: 1.2rem;
+  color: #34495e;
+}
+
+/* Contenedores para mostrar arrays y resultados */
+#arrayActual,
+.resultado {
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  min-height: 40px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Labels en columna para inputs */
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"] {
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  margin-top: 0.3rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* Botones */
+button {
+  background-color: #2980b9;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #1c5980;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  section {
+    padding: 1rem 1rem;
+  }
+  button {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+  label {
+    font-size: 0.95rem;
+  }
+}

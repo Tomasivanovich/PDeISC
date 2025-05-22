@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicios includes() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Manipulación de arrays con includes()</h1>
+
+  <!-- Sección: Array actual donde se agregan palabras o números -->
+  <section id="arrayActualSection">
+    <h2>Array actual (palabras o números):</h2>
+    <div id="arrayActual">[ ]</div>
+    <label for="inputAgregar">
+      Agregar elemento:
+      <input type="text" id="inputAgregar" />
+    </label>
+    <button id="btnAgregar">Agregar</button>
+  </section>
+
+  <!-- Sección 1: Comprobar si contiene la palabra "admin" -->
+  <section>
+    <h2>1. Comprobar si contiene la palabra "admin"</h2>
+    <button id="btnCheckAdmin">Comprobar "admin"</button>
+    <div id="resultadoAdmin" class="resultado"></div>
+  </section>
+
+  <!-- Sección 2: Indicar si existe "verde" en un array de colores -->
+  <section>
+    <h2>2. Indicar si existe "verde" en un array de colores</h2>
+    <button id="btnCheckVerde">Comprobar "verde"</button>
+    <div id="resultadoVerde" class="resultado"></div>
+  </section>
+
+  <!-- Sección 3: Verificar si un número está presente antes de agregarlo -->
+  <section>
+    <h2>3. Verificar si un número está presente antes de agregarlo</h2>
+    <label for="inputNumeroAgregar">
+      Número para agregar:
+      <input type="text" id="inputNumeroAgregar" />
+    </label>
+    <button id="btnAgregarNumero">Agregar número (si no está)</button>
+    <div id="resultadoAgregarNumero" class="resultado"></div>
+  </section>
+
+  <!-- Script para la lógica -->
+  <script src="script.js"></script>
+</body>
+</html>

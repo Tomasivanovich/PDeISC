@@ -1,0 +1,111 @@
+/* Reset básico y box-sizing para mejores layouts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body con fuente legible y fondo claro */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+/* Títulos principales y secundarios */
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #0a74da;
+}
+
+h2 {
+  margin-bottom: 0.75rem;
+  color: #045a9e;
+}
+
+/* Estilo para cada sección */
+section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+}
+
+/* Contenedores de arrays y resultados */
+#arrayActual,
+.resultado {
+  background-color: #e6f0ff;
+  border: 1px solid #a8c0ff;
+  border-radius: 5px;
+  padding: 0.5rem;
+  min-height: 40px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 1rem;
+}
+
+/* Labels con input alineados */
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+input[type="text"] {
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #0a74da;
+  outline: none;
+}
+
+/* Botones estilizados */
+button {
+  background-color: #0a74da;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #084a99;
+}
+
+/* Responsive: Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+  body {
+    padding: 0.8rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+}

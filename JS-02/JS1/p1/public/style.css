@@ -1,0 +1,98 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body y tipografía */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  max-width: 700px;
+  margin: 1.5rem auto;
+  padding: 1rem 1.5rem;
+  line-height: 1.6;
+}
+
+/* Titulos */
+h2, h3 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: #2962ff;
+}
+
+/* Formularios */
+form {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  flex: 1;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #2962ff;
+  outline: none;
+}
+
+/* Botones */
+button {
+  background-color: #2962ff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.25s ease;
+}
+
+button:hover {
+  background-color: #0039cb;
+}
+
+/* Listas */
+ul {
+  margin-left: 1rem;
+  margin-bottom: 1.2rem;
+  color: #444;
+  font-size: 1rem;
+}
+
+ul li {
+  padding: 0.15rem 0;
+}
+
+/* Mensajes */
+.mensaje {
+  min-height: 1.3em;
+  font-weight: 600;
+  color: #2e7d32; /* verde */
+  margin-bottom: 0.7rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  
+  form {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

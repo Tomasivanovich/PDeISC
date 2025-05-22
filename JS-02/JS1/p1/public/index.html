@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agregar datos al array</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <!-- Sección para agregar números -->
+  <h2>Agregar número</h2>
+  <form id="numeroForm">
+    <input
+      type="number"
+      id="numeroInput"
+      placeholder="Ingrese un número"
+      required
+      autocomplete="off"
+    />
+    <button type="submit">Agregar</button>
+  </form>
+  <p id="mensajeNumero" class="mensaje"></p>
+  <h3>Números en el array:</h3>
+  <ul id="listaNumeros"></ul>
+
+  <!-- Sección para agregar frutas -->
+  <h3>Agregar fruta</h3>
+  <form id="frutaForm">
+    <input
+      type="text"
+      id="frutaInput"
+      placeholder="Ingrese una fruta"
+      required
+      autocomplete="off"
+    />
+    <button type="submit">Agregar</button>
+  </form>
+  <p id="mensajeFruta" class="mensaje"></p>
+  <h3>Frutas en el array:</h3>
+  <ul id="listaFrutas"></ul>
+
+  <!-- Sección para agregar amigos -->
+  <h3>Agregar amigo</h3>
+  <form id="amigoForm">
+    <input
+      type="text"
+      id="amigoInput"
+      placeholder="Ingrese un amigo"
+      required
+      autocomplete="off"
+    />
+    <button type="submit">Agregar</button>
+  </form>
+  <p id="mensajeAmigo" class="mensaje"></p>
+  <h3>Amigos en el array:</h3>
+  <ul id="listaAmigos"></ul>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

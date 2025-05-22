@@ -1,0 +1,72 @@
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin: 0;
+  max-width: 800px;
+  margin-inline: auto;
+  color: #333;
+}
+
+/* Títulos */
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Tarjetas para secciones */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+/* Inputs y botones */
+input[type="text"] {
+  padding: 8px;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 300px;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Resultados */
+.resultado {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #ecf0f1;
+  border-left: 4px solid #3498db;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  input[type="text"] {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}

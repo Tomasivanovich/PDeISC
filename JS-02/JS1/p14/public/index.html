@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicios reverse() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Manipulación de Arrays con reverse()</h1>
+
+  <!-- Sección para letras -->
+  <section class="card">
+    <h2>Array de letras:</h2>
+    <div id="arrayLetras">[ ]</div>
+    <label>
+      Agregar letra:
+      <input type="text" id="inputLetra" maxlength="1" />
+    </label>
+    <button id="btnAgregarLetra">Agregar letra</button>
+  </section>
+
+  <!-- Sección para números -->
+  <section class="card">
+    <h2>Array de números:</h2>
+    <div id="arrayNumeros">[ ]</div>
+    <label>
+      Agregar número:
+      <input type="text" id="inputNumero" />
+    </label>
+    <button id="btnAgregarNumero">Agregar número</button>
+  </section>
+
+  <!-- Sección para texto -->
+  <section class="card">
+    <h2>Invertir texto:</h2>
+    <label>
+      Ingrese texto:
+      <input type="text" id="inputTexto" />
+    </label>
+    <button id="btnInvertirTexto">Invertir texto</button>
+    <div id="resultadoTexto" class="resultado"></div>
+  </section>
+
+  <!-- Botones de inversión -->
+  <section class="card">
+    <h2>1. Invertir array de letras</h2>
+    <button id="btnInvertirLetras">Invertir letras</button>
+    <div id="resultadoLetras" class="resultado"></div>
+  </section>
+
+  <section class="card">
+    <h2>2. Invertir array de números</h2>
+    <button id="btnInvertirNumeros">Invertir números</button>
+    <div id="resultadoNumeros" class="resultado"></div>
+  </section>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicios forEach() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Manipulación de arrays con forEach()</h1>
+
+  <!-- Sección: Array de nombres (strings) -->
+  <section id="arrayNombresSection">
+    <h2>Array de nombres (strings):</h2>
+    <div id="arrayNombres">[ ]</div>
+
+    <label>
+      Agregar nombre:
+      <input type="text" id="inputNombre" />
+    </label>
+    <button id="btnAgregarNombre">Agregar nombre</button>
+  </section>
+
+  <!-- Sección: Array de números -->
+  <section id="arrayNumerosSection">
+    <h2>Array de números:</h2>
+    <div id="arrayNumeros">[ ]</div>
+
+    <label>
+      Agregar número:
+      <input type="text" id="inputNumero" />
+    </label>
+    <button id="btnAgregarNumero">Agregar número</button>
+  </section>
+
+  <!-- Sección: Array de objetos {nombre, edad} -->
+  <section id="arrayObjetosSection">
+    <h2>Array de objetos {nombre, edad}:</h2>
+    <div id="arrayObjetos"></div>
+
+    <label>
+      Nombre:
+      <input type="text" id="inputObjNombre" />
+    </label>
+    <label>
+      Edad:
+      <input type="text" id="inputObjEdad" />
+    </label>
+    <button id="btnAgregarObjeto">Agregar objeto</button>
+  </section>
+
+  <!-- Botón: Saludos a cada nombre -->
+  <section>
+    <h2>1. Saludos a todos los nombres</h2>
+    <button id="btnSaludar">Mostrar saludos</button>
+    <div id="resultadoSaludo" class="resultado"></div>
+  </section>
+
+  <!-- Botón: Doblar números -->
+  <section>
+    <h2>2. Doblar números y mostrar</h2>
+    <button id="btnDoblar">Mostrar números doblados</button>
+    <div id="resultadoDoblar" class="resultado"></div>
+  </section>
+
+  <!-- Botón: Mostrar nombre y edad -->
+  <section>
+    <h2>3. Mostrar nombre y edad de cada objeto</h2>
+    <button id="btnMostrarObjetos">Mostrar nombres y edades</button>
+    <div id="resultadoObjetos" class="resultado"></div>
+  </section>
+
+  <!-- Enlace al script JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body y tipografía */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: #2d3748;
+  padding: 1.5rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Títulos */
+h2 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+  color: #2b6cb0;
+  font-weight: 700;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c5282;
+}
+
+/* Formularios */
+form {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #3182ce;
+}
+
+/* Botones */
+button {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+button:hover {
+  background-color: #2c5282;
+}
+
+/* Listas */
+ul {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+ul li {
+  padding: 0.2rem 0;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+/* Mensajes de confirmación o error */
+.mensaje {
+  margin-top: 0.2rem;
+  min-height: 1.2em;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2f855a; /* Verde */
+}
+
+/* Checkbox */
+#tareaCriticaCheckbox {
+  transform: scale(1.2);
+  margin-top: 0.4rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

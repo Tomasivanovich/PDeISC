@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agregar datos al array</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+
+  <!-- Sección para agregar colores -->
+  <h2>Agregar un color</h2>
+  <form id="colorForm">
+    <input
+      type="text"
+      id="colorInput"
+      placeholder="Ingrese un color"
+      required
+      autocomplete="off"
+    />
+    <button type="submit">Agregar</button>
+  </form>
+  <p id="mensajeColor" class="mensaje"></p>
+  <h3>Colores en el array:</h3>
+  <ul id="listaColores"></ul>
+
+  <!-- Sección para agregar tareas -->
+  <h2>Agregar una tarea</h2>
+  <form id="tareaForm">
+    <input
+      type="text"
+      id="tareaInput"
+      placeholder="Ingrese una tarea"
+      required
+      autocomplete="off"
+    />
+    <button type="submit">Agregar</button>
+  </form>
+  <p id="mensajeTarea" class="mensaje"></p>
+  <h3>Tareas en el array:</h3>
+  <ul id="listaTareas"></ul>
+
+  <!-- Checkbox para marcar la tarea crítica -->
+  <h3>Desea marcar una tarea crítica</h3>
+  <input type="checkbox" id="tareaCriticaCheckbox" />
+
+  <!-- Sección para agregar nombres de usuario -->
+  <h2>Agregar un nombre de usuario</h2>
+  <form id="usuarioForm">
+    <input
+      type="text"
+      id="usuarioInput"
+      placeholder="Ingrese un nombre de usuario"
+      required
+      autocomplete="off"
+    />
+    <button type="submit">Agregar</button>
+  </form>
+  <p id="mensajeUsuario" class="mensaje"></p>
+  <h3>Usuarios en el array:</h3>
+  <ul id="listaUsuarios"></ul>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

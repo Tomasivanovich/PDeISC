@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicios indexOf() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Manipulación de arrays con indexOf()</h1>
+
+  <!-- Sección: Array actual para agregar palabras o números -->
+  <section id="arrayActualSection">
+    <h2>Array actual (palabras o números):</h2>
+    <div id="arrayActual">[ ]</div>
+    <label for="inputAgregar">
+      Agregar elemento:
+      <input type="text" id="inputAgregar" />
+    </label>
+    <button id="btnAgregar">Agregar</button>
+  </section>
+
+  <!-- Sección 1: Buscar la palabra "perro" -->
+  <section>
+    <h2>1. Buscar palabra "perro"</h2>
+    <button id="btnBuscarPerro">Buscar "perro"</button>
+    <div id="resultadoPerro" class="resultado"></div>
+  </section>
+
+  <!-- Sección 2: Verificar si existe el número 50 -->
+  <section>
+    <h2>2. Verificar número 50</h2>
+    <button id="btnBuscar50">Buscar número 50</button>
+    <div id="resultado50" class="resultado"></div>
+  </section>
+
+  <!-- Sección 3: Buscar ciudad "Madrid" -->
+  <section>
+    <h2>3. Buscar ciudad "Madrid"</h2>
+    <button id="btnBuscarMadrid">Buscar "Madrid"</button>
+    <div id="resultadoMadrid" class="resultado"></div>
+  </section>
+
+  <!-- Script con la lógica de indexOf -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo base del body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  color: #2d3748;
+  padding: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1a202c;
+}
+
+/* Contenedor general de secciones */
+.section-container {
+  max-width: 700px;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+  padding: 1.8rem 2rem;
+}
+
+/* Títulos secundarios */
+h2 {
+  color: #2b6cb0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2c5282;
+}
+
+/* Texto con array actual */
+.current-array {
+  font-family: monospace;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #4a5568;
+}
+
+/* Formularios y botones */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+label {
+  flex: 1 1 150px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2d3748;
+}
+
+input[type="text"],
+input[type="number"] {
+  flex: 2 1 250px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #3182ce;
+}
+
+/* Botones */
+button {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.25s ease;
+}
+
+button:hover {
+  background-color: #2c5282;
+}
+
+/* Resultados y mensajes */
+.result-message {
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  color: #2f855a;
+  min-height: 1.3em;
+}
+
+.error-message {
+  color: #e53e3e;
+  margin-top: 0.3rem;
+  min-height: 1.3em;
+}
+
+/* Separadores */
+hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .section-container {
+    padding: 1rem 1.2rem;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  label,
+  input[type="text"],
+  input[type="number"],
+  button {
+    flex: unset;
+    width: 100%;
+  }
+
+  button {
+    margin-top: 0.4rem;
+  }
+}

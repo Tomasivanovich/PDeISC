@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Demostraciones JavaScript - shift()</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <h1>Demostraciones de Métodos de Array en JavaScript</h1>
+
+    <div class="section-container">
+        <!-- Sección para manejo de array de números con shift() -->
+        <h2>4. Método <code>shift()</code></h2>
+
+        <h3>1. Gestión de Array de Números (shift())</h3>
+        <p class="current-array">
+          Array de números actual: <span id="numerosArrayDisplay"></span>
+        </p>
+
+        <form id="addNumeroForm">
+            <label for="addNumeroInput">Agregar número:</label>
+            <input
+                type="number"
+                id="addNumeroInput"
+                placeholder="Introduce un número"
+                required
+            />
+            <button type="submit">Agregar Número</button>
+        </form>
+
+        <button id="btnShiftNumero">Quitar Primer Número</button>
+        <p class="result-message" id="resultShiftNumero"></p>
+
+        <hr />
+
+        <!-- Sección para manejo de mensajes de chat con shift() -->
+        <h3>2. Gestión de Mensajes de Chat (shift())</h3>
+        <p class="current-array">
+          Mensajes de chat actuales: <span id="mensajesChatDisplay"></span>
+        </p>
+
+        <form id="addMensajeForm">
+            <label for="addMensajeInput">Agregar mensaje:</label>
+            <input
+                type="text"
+                id="addMensajeInput"
+                placeholder="Introduce un mensaje"
+                required
+            />
+            <button type="submit">Agregar Mensaje</button>
+        </form>
+
+        <button id="btnShiftMensaje">Quitar Primer Mensaje</button>
+        <p class="result-message" id="resultShiftMensaje"></p>
+
+        <hr />
+
+        <!-- Sección para simulación de cola de atención con shift() -->
+        <h3>3. Simulación de Cola de Atención al Cliente (shift())</h3>
+        <p class="current-array">
+          Cola de clientes actual: <span id="colaClientesDisplay"></span>
+        </p>
+
+        <form id="addClienteForm">
+            <label for="addClienteInput">Agregar cliente:</label>
+            <input
+                type="text"
+                id="addClienteInput"
+                placeholder="Introduce el nombre del cliente"
+                required
+            />
+            <button type="submit">Agregar Cliente a la Cola</button>
+        </form>
+
+        <button id="btnAtenderCliente">Atender Siguiente Cliente</button>
+        <p class="result-message" id="resultAtenderCliente"></p>
+        <p class="error-message" id="colaClientesError"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

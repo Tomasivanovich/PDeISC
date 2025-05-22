@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicios filter() en cliente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Manipulación de Arrays con <code>filter()</code></h1>
+
+  <!-- Sección: Números -->
+  <section class="card">
+    <h2>Array de números</h2>
+    <div id="arrayNumeros">[ ]</div>
+    <label>
+      Agregar número:
+      <input type="text" id="inputNumero" />
+    </label>
+    <button id="btnAgregarNumero">Agregar número</button>
+  </section>
+
+  <!-- Sección: Palabras -->
+  <section class="card">
+    <h2>Array de palabras</h2>
+    <div id="arrayPalabras">[ ]</div>
+    <label>
+      Agregar palabra:
+      <input type="text" id="inputPalabra" />
+    </label>
+    <button id="btnAgregarPalabra">Agregar palabra</button>
+  </section>
+
+  <!-- Sección: Usuarios -->
+  <section class="card">
+    <h2>Array de usuarios <code>{nombre, activo}</code></h2>
+    <div id="arrayUsuarios">[ ]</div>
+    <label>
+      Nombre:
+      <input type="text" id="inputUsuarioNombre" />
+    </label>
+    <label>
+      Activo:
+      <select id="inputUsuarioActivo">
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </label>
+    <button id="btnAgregarUsuario">Agregar usuario</button>
+  </section>
+
+  <!-- Filtros -->
+
+  <section class="card">
+    <h2>1. Filtrar números mayores a 10</h2>
+    <button id="btnFiltrarNumeros">Mostrar números &gt; 10</button>
+    <div id="resultadoNumeros" class="resultado"></div>
+  </section>
+
+  <section class="card">
+    <h2>2. Filtrar palabras con más de 5 letras</h2>
+    <button id="btnFiltrarPalabras">Mostrar palabras &gt; 5 letras</button>
+    <div id="resultadoPalabras" class="resultado"></div>
+  </section>
+
+  <section class="card">
+    <h2>3. Filtrar usuarios activos</h2>
+    <button id="btnFiltrarUsuarios">Mostrar usuarios activos</button>
+    <div id="resultadoUsuarios" class="resultado"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

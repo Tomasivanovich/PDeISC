@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Meta para hacer la página responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Piedra, Papel o Tijeras</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Título principal -->
+  <h1>Piedra, Papel o Tijeras</h1>
+
+  <!-- Sección para elegir modo de juego -->
+  <section id="inicio">
+    <h2>Elegí el modo de juego</h2>
+    <button onclick="elegirModo('cpu')">Jugador vs CPU</button>
+    <button onclick="elegirModo('versus')">Jugador vs Jugador</button>
+  </section>
+
+  <!-- Sección del juego que aparece tras elegir modo -->
+  <section id="juego" style="display: none;">
+    <h2 id="tituloJuego"></h2>
+    <div id="formJugador"></div>
+    <div id="seleccion"></div>
+    <div id="resultadoJuego"></div>
+  </section>
+
+  <!-- Sección del historial de partidas -->
+  <section>
+    <h3>Historial de Partidas</h3>
+    <ul id="historial"></ul>
+  </section>
+
+  <!-- Archivo JS principal -->
+  <script src="script.js"></script>
+</body>
+</html>

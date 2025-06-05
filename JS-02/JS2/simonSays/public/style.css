@@ -1,0 +1,131 @@
+/* Estilos base del body */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1c1c1c;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Encabezados centrados con margen */
+h1, h2 {
+  margin: 10px;
+  text-align: center;
+}
+
+/* Contenedor tipo grid para botones */
+.board {
+  display: grid;
+  grid-template-columns: repeat(2, 140px); /* 2 columnas fijas de 140px */
+  gap: 15px; /* separación entre botones */
+  margin: 20px 0;
+}
+
+/* Estilo general para botones */
+.button {
+  width: 140px;
+  height: 140px;
+  border: none;
+  border-radius: 20px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+/* Efecto visual al "flash" */
+.button.flash {
+  opacity: 1;
+  box-shadow: 0 0 20px white;
+}
+
+/* Colores individuales para cada botón */
+#green { 
+  background-color: green; 
+}
+
+#red { 
+  background-color: red; 
+}
+
+#yellow { 
+  background-color: yellow; 
+  color: black; /* texto oscuro para contraste */
+}
+
+#blue { 
+  background-color: blue; 
+}
+
+/* Botón de inicio oculto inicialmente */
+#start {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-top: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Contenedor de información del jugador */
+#playerInfo {
+  margin-bottom: 20px;
+}
+
+/* Input de texto para nombres o similar */
+input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+  width: 200px;
+}
+
+/* Lista de ranking sin estilo de lista por defecto */
+#ranking {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Estilo de cada ítem del ranking */
+#ranking li {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Media queries para dispositivos móviles y pantallas pequeñas */
+@media (max-width: 480px) {
+  /* Ajuste del grid para que las columnas se adapten a pantalla pequeña */
+  .board {
+    grid-template-columns: repeat(2, 1fr); /* columnas flexibles iguales */
+    gap: 10px;
+  }
+
+  /* Botones se hacen más pequeños y adaptables */
+  .button {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+  }
+
+  /* Input más ancho para ocupar casi todo el ancho */
+  input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Ajuste del tamaño del botón de inicio */
+  #start {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  /* Ranking ocupa todo el ancho disponible */
+  #ranking {
+    max-width: 100%;
+  }
+}

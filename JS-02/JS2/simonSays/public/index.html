@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simón Dice</title>
+  <!-- Título de la pestaña del navegador -->
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Vincula el archivo de estilos externo -->
+</head>
+
+<body>
+  <!-- Cuerpo principal del documento -->
+
+  <h1>Simón Dice</h1>
+  <!-- Título principal del juego -->
+
+  <div id="playerInfo">
+    <!-- Contenedor para ingresar el nombre del jugador -->
+
+    <form id="nameForm">
+      <!-- Formulario para capturar el nombre del jugador -->
+
+      <input 
+        type="text" 
+        id="playerName" 
+        placeholder="Tu nombre" 
+        required 
+        aria-label="Nombre del jugador"
+      />
+      <!-- Campo de texto para ingresar el nombre -->
+
+      <button type="submit">Ingresar</button>
+      <!-- Botón para enviar el formulario -->
+    </form>
+  </div>
+
+  <h2 id="welcome"></h2>
+  <!-- Mensaje de bienvenida personalizado tras ingresar nombre -->
+
+  <h2 id="level">Nivel 0</h2>
+  <!-- Muestra el nivel actual del juego -->
+
+  <div class="board">
+    <!-- Contenedor del tablero con los botones de colores -->
+
+    <button class="button" id="green" aria-label="Botón verde"></button>
+    <!-- Botón verde del juego -->
+
+    <button class="button" id="red" aria-label="Botón rojo"></button>
+    <!-- Botón rojo del juego -->
+
+    <button class="button" id="yellow" aria-label="Botón amarillo"></button>
+    <!-- Botón amarillo del juego -->
+
+    <button class="button" id="blue" aria-label="Botón azul"></button>
+    <!-- Botón azul del juego -->
+  </div>
+
+  <button id="start">Iniciar Juego</button>
+  <!-- Botón para iniciar el juego (se oculta hasta ingresar nombre) -->
+
+  <h2>Ranking</h2>
+  <!-- Título de la sección de ranking de jugadores -->
+
+  <ul id="ranking"></ul>
+  <!-- Lista donde se mostrarán los puntajes -->
+
+  <script src="script.js"></script>
+  <!-- Importa el archivo JavaScript que contiene la lógica del juego -->
+
+</body>
+</html>

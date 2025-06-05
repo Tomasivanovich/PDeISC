@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Meta para que la página sea responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TaTeTi - Tres en Línea</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Título principal -->
+  <h1>TaTeTi</h1>
+
+  <!-- Formulario para ingresar nombres y elegir jugar contra CPU -->
+  <form id="formNombres">
+    <input
+      type="text"
+      id="jugador1"
+      placeholder="Jugador X"
+      required
+    />
+    <input
+      type="text"
+      id="jugador2"
+      placeholder="Jugador O"
+      required
+    />
+
+    <label for="chkCpu">
+      <input type="checkbox" id="chkCpu" />
+      Jugar contra CPU
+    </label>
+
+    <button type="submit">Comenzar</button>
+  </form>
+
+  <!-- Contenedor para mostrar información del turno o mensajes -->
+  <div id="info"></div>
+
+  <!-- Tablero del juego con clase para diseño en grid -->
+  <div id="tablero" class="grid"></div>
+
+  <!-- Texto para mostrar resultado final -->
+  <h2 id="resultado"></h2>
+
+  <!-- Botón para reiniciar el juego, oculto inicialmente -->
+  <button id="reiniciar" style="display:none;">Jugar de nuevo</button>
+
+  <!-- Historial de partidas jugadas -->
+  <h3>Historial de Partidas</h3>
+  <ul id="historial"></ul>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>

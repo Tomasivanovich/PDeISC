@@ -1,0 +1,185 @@
+/* Estilo general para todo el sitio */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;  
+    color: #333;  
+}
+
+a {
+    text-decoration: none;  /* Elimina subrayado en los enlaces */
+}
+
+/* Contenedor principal (para centrado y máximo ancho) */
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;  /* Centrado horizontal */
+}
+
+/* Header: barra superior con el logo y la navegación */
+header {
+    background-color: #003366;  
+    color: white; 
+    padding: 20px 0;  /* Espaciado superior e inferior */
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;  /* Elimina los puntos de la lista */
+    display: flex;  /* Disposición horizontal */
+    justify-content: center;  /* Centra los elementos de la lista */
+}
+
+header nav ul li {
+    margin-left: 20px;  /* Separación entre los elementos del menú */
+}
+
+header nav ul li a {
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;  /* Convierte el texto a mayúsculas */
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;  /* Subrayado al pasar el ratón */
+}
+
+/* Cuerpo principal: distribuye la noticia principal */
+main {
+    display: flex;
+    margin-top: 30px;  
+}
+
+.main-news{
+    flex: 0 0 60%;  /* 60% de ancho para la noticia principal */
+    margin-right: 20px;  
+}
+
+.news h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.primicia {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #e60000;  /* Color rojo para destacar */
+    margin-bottom: 20px;
+}
+
+.resumen {
+    font-size: 1.2rem;
+    color: #555;  /* Color gris para el resumen */
+    margin-bottom: 30px;
+}
+
+.featured-image {
+    width: 100%;  /* Hacer que la imagen ocupe el 100% del ancho de su contenedor */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.full-article {
+    font-size: 1.1rem;
+    line-height: 1.8;  /* Mejor legibilidad en el artículo */
+    margin-bottom: 30px;
+}
+
+/* Estilo para las noticias al final (Otras Noticias) */
+.other-news h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.other-news ul {
+    list-style-type: none;  /* Elimina los puntos de la lista */
+    padding: 0;
+}
+
+.news-box {
+    display: flex;
+    margin-bottom: 20px;
+    background-color: #fff; 
+    padding: 10px;
+    border-radius: 8px;  /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Sombra ligera */
+}
+
+.news-box-image {
+    width: 40px;  /* Tamaño de la imagen */
+    height: auto;
+    border-radius: 8px;  /* Bordes redondeados para la imagen */
+    margin-right: 15px;  /* Separación entre imagen y texto */
+}
+
+/* Pie de página: información de derechos reservados */
+footer {
+    background-color: #003366; 
+    color: white;  
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;  /* Espaciado superior */
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;  /* Cambia la disposición a columna en pantallas pequeñas */
+    }
+
+    .main-news {
+        flex: 0 0 100%;  /* Hace que la noticia principal ocupe todo el ancho */
+        margin-right: 0;  /* Elimina el espaciado a la derecha */
+    }
+
+    .other-news {
+        margin-top: 20px;  /* Espaciado superior */
+        padding-left: 0;  /* Elimina el espaciado a la izquierda */
+        width: 100%;  /* La columna lateral ocupa todo el ancho */
+    }
+
+    .news h2 {
+        font-size: 2rem;  /* Reduce el tamaño del título en pantallas pequeñas */
+    }
+
+    .primicia {
+        font-size: 1rem;  /* Reduce el tamaño del texto de la primicia */
+    }
+
+    .resumen {
+        font-size: 1.1rem;  /* Reduce el tamaño del resumen */
+    }
+
+    .full-article {
+        font-size: 1rem;  /* Reduce el tamaño del artículo completo */
+    }
+
+    .news-box {
+        flex-direction: column;  /* Hace que las cajas de noticias se apilen verticalmente */
+    }
+
+    .news-box-image {
+        width: 100%;  /* La imagen ocupa todo el ancho en pantallas pequeñas */
+        margin-bottom: 10px;  /* Espaciado inferior */
+    }
+
+    .news-box-content {
+        width: 100%;  /* El contenido ocupa todo el ancho */
+    }
+}

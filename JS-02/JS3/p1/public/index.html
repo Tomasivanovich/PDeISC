@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ingreso de Números</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Formulario de Números</h1>
+
+    <!-- Sección de formulario para ingresar números -->
+    <div class="form">
+      <!-- Campo para ingresar un número -->
+      <input type="number" id="numeroInput" placeholder="Ingrese un número" />
+      
+      <!-- Botón para agregar el número a la lista -->
+      <button id="agregarBtn">Agregar número</button>
+    </div>
+
+    <!-- Mensaje de error (se mostrará si el input no es válido) -->
+    <p id="error" class="error"></p>
+
+    <!-- Contenedor donde se mostrará la lista de números ingresados -->
+    <div id="lista">
+      <h2>Números ingresados:</h2>
+      <ul id="numerosList"></ul>
+    </div>
+
+    <button id="descargarBtn" style="display:none;">Descargar TXT</button>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

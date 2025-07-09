@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Filtrado de Números</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Filtrar Números desde Archivo TXT</h1>
+
+    <!-- Input para que el usuario suba archivos .txt -->
+    <input type="file" id="fileInput" accept=".txt" />
+
+    <!-- Mensaje de error (se mostrará si hay problemas con el archivo) -->
+    <p id="error" class="error"></p>
+
+    <!-- Contenedor de resultados que inicialmente está oculto -->
+    <div id="resultados" style="display:none;">
+
+      <!-- Lista de números válidos (que empiezan y terminan con el mismo dígito) -->
+      <h2>Números válidos:</h2>
+      <ul id="validosList"></ul>
+
+      <!-- Sección con estadísticas -->
+      <div class="estadisticas">
+        <p>✔️ Válidos: <span id="validCount">0</span></p>
+        <p>❌ Inválidos: <span id="invalidCount">0</span></p>
+        <p>📊 Porcentaje útil: <span id="porcentaje">0%</span></p>
+      </div>
+
+      <button id="descargarBtn">Descargar Resultado</button>
+    </div>
+
+    <script src="script.js"></script>
+  </div>
+</body>
+</html>

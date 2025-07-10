@@ -1,5 +1,5 @@
 export default class Animal {
-  //Contructor para la clase
+  //Constructor para la clase
   constructor(name, jail, type, weigth) {
     this.id = Date.now();
     this.name = name;

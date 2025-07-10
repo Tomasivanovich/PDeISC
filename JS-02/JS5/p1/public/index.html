@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoo</title>
+  </head>
+
+  <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Título principal -->
+    <h1 class="font-extrabold text-5xl text-center mt-20 lg:mt-12 text-sky-600 drop-shadow-md">
+      Zoo
+    </h1>
+
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-10 mx-6 mt-16 mb-20 items-start">
+      
+      <!-- Sección de información -->
+      <section class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 order-3 lg:order-1">
+        <h2 class="font-semibold text-center text-3xl mb-6 text-sky-500">Info</h2>
+        <table id="info" class="flex flex-col items-center space-y-2 text-center text-gray-700"></table>
+      </section>
+
+      <!-- Formulario de ingreso de animales -->
+      <section class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 flex justify-center order-1 lg:order-2">
+        <form id="form" class="flex flex-col gap-4 w-full max-w-sm">
+          <input
+            type="text"
+            id="animal-name"
+            placeholder="Nombre del animal"
+            class="bg-gray-50 text-gray-800 border border-gray-300 px-4 py-2 rounded-lg shadow-sm focus:border-sky-400 focus:ring-2 focus:ring-sky-300 outline-none placeholder-gray-500"
+          />
+          <input
+            type="number"
+            id="jail-number"
+            placeholder="Número de jaula"
+            class="bg-gray-50 text-gray-800 border border-gray-300 px-4 py-2 rounded-lg shadow-sm focus:border-sky-400 focus:ring-2 focus:ring-sky-300 outline-none placeholder-gray-500"
+          />
+          <select
+            id="animal-type"
+            class="bg-gray-50 text-gray-800 border border-gray-300 px-4 py-2 rounded-lg shadow-sm focus:border-sky-400 focus:ring-2 focus:ring-sky-300 outline-none"
+          >
+            <option value="1">Felino</option>
+            <option value="2">Ave</option>
+            <option value="3">Reptil</option>
+          </select>
+          <input
+            type="number"
+            id="animal-weigth"
+            placeholder="Peso del animal"
+            class="bg-gray-50 text-gray-800 border border-gray-300 px-4 py-2 rounded-lg shadow-sm focus:border-sky-400 focus:ring-2 focus:ring-sky-300 outline-none placeholder-gray-500"
+          />
+          <button
+            type="submit"
+            class="bg-sky-500 text-white px-5 py-2 rounded-xl font-semibold shadow hover:bg-sky-400 transition-transform hover:scale-105"
+          >
+            Guardar animales
+          </button>
+        </form>
+      </section>
+
+      <!-- Lista de animales -->
+      <section class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 order-2 lg:order-3">
+        <h2 class="font-semibold text-center text-3xl mb-6 text-sky-500">Animales</h2>
+        <table id="table" class="flex flex-col items-center space-y-2 text-center text-gray-700"></table>
+      </section>
+    </main>
+
+    <!-- Carga Tailwind CSS y el script del proyecto -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

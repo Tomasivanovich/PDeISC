@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ListaTareas from "./pages/ListaTareas";
 import DetalleTarea from "./pages/DetalleTarea";
 import CrearTarea from "./pages/CrearTarea";
+import EditarTarea from "./pages/EditarTarea";
 import { useTareas } from "./Hooks/useTareas"; // Hook para guardar las tareas en localStorage
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -49,6 +50,7 @@ function App() {
           <Route path="/" element={<ListaTareas tareas={tareas} setTareas={setTareas} />} />
           <Route path="/tarea/:id" element={<DetalleTarea tareas={tareas} />} />
           <Route path="/crear" element={<CrearTarea tareas={tareas} setTareas={setTareas} />} />
+          <Route path="/editar/:id" element={<EditarTarea tareas={tareas} setTareas={setTareas} />} />
         </Routes>
 
       </div>

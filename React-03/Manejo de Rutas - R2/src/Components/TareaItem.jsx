@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function TareaItem({ tarea, setTareas }) {
   const [mensaje, setMensaje] = useState("");
+  const navigate = useNavigate();
 
-  // Alterna el estado activo de la tarea
   const toggleActive = () => {
     setTareas(prev =>
       prev.map(t => t.id === tarea.id ? { ...t, active: !t.active } : t)
@@ -13,7 +13,6 @@ export default function TareaItem({ tarea, setTareas }) {
     setTimeout(() => setMensaje(""), 3000);
   };
 
-  // Alterna el estado completado de la tarea
   const toggleCompleted = () => {
     setTareas(prev =>
       prev.map(t => t.id === tarea.id ? { ...t, completed: !t.completed } : t)
@@ -22,19 +21,21 @@ export default function TareaItem({ tarea, setTareas }) {
     setTimeout(() => setMensaje(""), 3000);
   };
 
-  // Elimina la tarea de la lista
   const borrarTarea = () => {
     setTareas(prev => prev.filter(t => t.id !== tarea.id));
     setMensaje(`Tarea "${tarea.title}" eliminada`);
     setTimeout(() => setMensaje(""), 3000);
   };
 
-  // Clase dinámica para el título según el estado de la tarea
   const claseTitulo = `
     fw-bold 
     ${tarea.completed ? 'text-warning' : 'text-success'}
     ${!tarea.active ? 'text-decoration-line-through text-muted' : ''}
   `;
+
+  const descripcionCorta = (texto, max = 50) => {
+    return texto.length > max ? texto.slice(0, max) + "…" : texto;
+  };
 
   return (
     <li className={`list-group-item d-flex justify-content-between align-items-start ${!tarea.active ? 'list-group-item-secondary' : ''}`}>
@@ -43,7 +44,7 @@ export default function TareaItem({ tarea, setTareas }) {
           {tarea.title}
         </Link>
         <p className={`mb-1 ${!tarea.active ? 'text-decoration-line-through text-muted' : ''}`}>
-          {tarea.description}
+          {descripcionCorta(tarea.description, 50)}
         </p>
         {mensaje && <div className="alert alert-info py-1 mt-1">{mensaje}</div>}
       </div>
@@ -53,6 +54,9 @@ export default function TareaItem({ tarea, setTareas }) {
         </button>
         <button className="btn btn-info mb-1 mb-md-0 me-md-1" onClick={toggleActive}>
           {tarea.active ? "Desactivar" : "Activar"}
+        </button>
+        <button className="btn btn-secondary mb-1 mb-md-0 me-md-1" onClick={() => navigate(`/editar/${tarea.id}`)}>
+          Editar
         </button>
         <button className="btn btn-danger" onClick={borrarTarea}>Borrar</button>
       </div>

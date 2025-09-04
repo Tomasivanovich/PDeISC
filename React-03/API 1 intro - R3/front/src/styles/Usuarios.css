@@ -234,3 +234,76 @@ body {
   }
 }
 
+/* Fondo oscuro al activar modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Cuadro de confirmación */
+.modal-confirm {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 14px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  animation: fadeInScale 0.3s ease;
+}
+
+.modal-confirm h3 {
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.modal-confirm p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Animación suave */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Botones ya definidos, heredan confirm-buttons */
+.confirm-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.confirm-buttons button:first-of-type {
+  background-color: #ff4d4f;
+  color: #fff;
+}
+
+.confirm-buttons button:first-of-type:hover {
+  background-color: #e04344;
+}
+
+.confirm-buttons button:last-of-type {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.confirm-buttons button:last-of-type:hover {
+  background-color: #5a6268;
+}

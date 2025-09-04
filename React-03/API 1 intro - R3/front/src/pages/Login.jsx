@@ -20,7 +20,6 @@ function Login({ setUser }) {
         return;
       }
 
-      // Guardamos en estado y localStorage
       setUser(data.user);
       localStorage.setItem("user", JSON.stringify(data.user));
 
@@ -55,7 +54,6 @@ function Login({ setUser }) {
         <button type="submit">Ingresar</button>
       </form>
 
-      {/* En caso de no tener usuario */}
       <p style={{ marginTop: "1rem", fontSize: "0.9rem" }}>
         ¿No tienes usuario? <Link to="/crear-usuario">Crea uno aquí</Link>
       </p>

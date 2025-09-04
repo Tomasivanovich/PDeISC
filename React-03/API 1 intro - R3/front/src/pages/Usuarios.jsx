@@ -31,7 +31,7 @@ const Usuarios = () => {
 
   const navigate = useNavigate();
 
-  // ✅ Verificar rol al montar el componente
+  // Verificar rol al montar el componente
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user || user.role !== "admin") {

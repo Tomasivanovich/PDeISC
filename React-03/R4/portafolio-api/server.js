@@ -18,6 +18,10 @@ app.use("/api/experience", experienceRoutes);
 app.use("/api/projects", projectsRoutes);
 app.use("/api/skills", skillsRoutes);
 
+app.get("/", (req, res) => {
+  res.send("🌍 API de Portafolio funcionando. Endpoints: /api/creators, /api/experience, /api/projects, /api/skills");
+});
+
 // Levantar servidor (Render define el puerto en process.env.PORT)
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

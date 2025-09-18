@@ -32,7 +32,10 @@ export default function VisitorSearchPortfolio() {
       }}
     >
       {/* Formulario de búsqueda */}
-      <div className="card p-5 mx-auto shadow-lg rounded-4 animate__animated animate__fadeIn" style={{ maxWidth: "500px" }}>
+      <div
+        className="card p-5 mx-auto shadow-lg rounded-4 animate__animated animate__fadeIn"
+        style={{ maxWidth: "500px" }}
+      >
         <h2 className="text-center mb-4 fw-bold text-primary">Buscar Portafolio</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -55,7 +58,10 @@ export default function VisitorSearchPortfolio() {
         </form>
 
         {error && (
-          <div className="alert alert-danger mt-3 animate__animated animate__shakeX" role="alert">
+          <div
+            className="alert alert-danger mt-3 animate__animated animate__shakeX"
+            role="alert"
+          >
             {error}
           </div>
         )}
@@ -70,14 +76,16 @@ export default function VisitorSearchPortfolio() {
             <p className="text-muted">{portfolio.creator.title}</p>
             <p className="text-muted">{portfolio.creator.bio}</p>
             <p className="text-muted">{portfolio.creator.phone}</p>
-            <p className="text-muted">{portfolio.creator.profile_image}</p>
-            <img
-              src={creator.profile_image}
-              alt="Perfil"
-              className="img-thumbnail mb-2"
-              style={{ width: "120px" }}
-            />
-          )}
+
+            {/* Imagen de perfil */}
+            {portfolio.creator.profile_image && (
+              <img
+                src={portfolio.creator.profile_image}
+                alt="Perfil"
+                className="img-thumbnail mb-2"
+                style={{ width: "120px" }}
+              />
+            )}
           </div>
 
           {/* Experiencia */}
@@ -97,10 +105,20 @@ export default function VisitorSearchPortfolio() {
             <h3 className="fw-bold mb-3">Proyectos</h3>
             <ul className="list-group list-group-flush">
               {portfolio.projects.map((p) => (
-                <li key={p.id} className="list-group-item d-flex justify-content-between align-items-center">
-                  <span><b>{p.title}</b></span>
+                <li
+                  key={p.id}
+                  className="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <span>
+                    <b>{p.title}</b>
+                  </span>
                   {p.link && (
-                    <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm">
+                    <a
+                      href={p.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline-primary btn-sm"
+                    >
                       🔗 Ver
                     </a>
                   )}

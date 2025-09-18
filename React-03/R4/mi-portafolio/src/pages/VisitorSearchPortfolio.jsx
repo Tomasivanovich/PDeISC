@@ -71,6 +71,13 @@ export default function VisitorSearchPortfolio() {
             <p className="text-muted">{portfolio.creator.bio}</p>
             <p className="text-muted">{portfolio.creator.phone}</p>
             <p className="text-muted">{portfolio.creator.profile_image}</p>
+            <img
+              src={creator.profile_image}
+              alt="Perfil"
+              className="img-thumbnail mb-2"
+              style={{ width: "120px" }}
+            />
+          )}
           </div>
 
           {/* Experiencia */}

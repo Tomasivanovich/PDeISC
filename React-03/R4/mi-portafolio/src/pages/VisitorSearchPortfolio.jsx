@@ -80,7 +80,7 @@ export default function VisitorSearchPortfolio() {
             {/* Imagen de perfil */}
             {portfolio.creator.profile_image && (
               <img
-                src={portfolio.creator.profile_image}
+                src={portfolio.creator.profile_image} // se usa el link directo
                 alt="Perfil"
                 className="img-thumbnail mb-2"
                 style={{ width: "120px" }}

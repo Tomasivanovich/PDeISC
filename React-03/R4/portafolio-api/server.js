@@ -3,8 +3,15 @@ const cors = require("cors");
 
 const app = express();
 
-// Middlewares
-app.use(cors());
+// Middleware CORS configurado para tu frontend en Vercel
+app.use(cors({
+  origin: "https://portafolio-lime-six-91.vercel.app", // tu dominio frontend
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"], // si usás JWT
+  credentials: true
+}));
+
+// Middleware JSON
 app.use(express.json());
 
 // Rutas existentes
@@ -22,11 +29,11 @@ app.use("/api/creators", creatorsRoutes);
 app.use("/api/experience", experienceRoutes);
 app.use("/api/projects", projectsRoutes);
 app.use("/api/skills", skillsRoutes);
+app.use("/api/visitors", visitorsRoutes);
+app.use("/api/portfolio", portfolioRoutes);
 
-app.use("/api/visitors", visitorsRoutes);   // Registro / Login visitantes
-app.use("/api/portfolio", portfolioRoutes); // Solo lectura y registro de visitas
-
-// Levantar servidor
-app.listen(4000, () => {
-  console.log("✅ Servidor API corriendo en http://localhost:4000");
+// Levantar servidor en puerto de Railway (o 4000 local)
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`✅ Servidor API corriendo en http://localhost:${PORT}`);
 });

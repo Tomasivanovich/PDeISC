@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
+console.log("⚡ Routes /api/skills cargadas");
+
 // ------------------------
-// Crear una skill
+// Crear skill (Create)
 // ------------------------
 router.post('/', async (req, res) => {
     const { creator_id, name, level } = req.body;
@@ -13,15 +15,15 @@ router.post('/', async (req, res) => {
              VALUES (?, ?, ?)`,
             [creator_id, name, level]
         );
-        res.json({ id: result.insertId });
+        res.json({ id: result.insertId, message: "Skill creada correctamente" });
     } catch (err) {
-        console.error("Error al crear skill:", err);
+        console.error(err);
         res.status(500).json({ error: 'Error al crear skill' });
     }
 });
 
 // ------------------------
-// Obtener todas las skills de un creador
+// Leer skills por creador (Read)
 // ------------------------
 router.get('/:creator_id', async (req, res) => {
     try {
@@ -31,8 +33,48 @@ router.get('/:creator_id', async (req, res) => {
         );
         res.json(rows);
     } catch (err) {
-        console.error("Error al obtener skills:", err);
+        console.error(err);
         res.status(500).json({ error: 'Error al obtener skills' });
+    }
+});
+
+// ------------------------
+// Actualizar skill (Update)
+// ------------------------
+router.put('/:id', async (req, res) => {
+    const { id } = req.params;
+    const { name, level } = req.body;
+    try {
+        const [result] = await db.query(
+            'UPDATE skills SET name = ?, level = ? WHERE id = ?',
+            [name, level, id]
+        );
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: "Skill no encontrada" });
+        }
+        res.json({ message: "Skill actualizada correctamente" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Error al actualizar skill" });
+    }
+});
+
+// ------------------------
+// Eliminar skill (Delete)
+// ------------------------
+router.delete('/:id', async (req, res) => {
+    try {
+        const [result] = await db.query(
+            'DELETE FROM skills WHERE id = ?',
+            [req.params.id]
+        );
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: "Skill no encontrada" });
+        }
+        res.json({ message: "Skill eliminada correctamente" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Error al eliminar skill" });
     }
 });
 

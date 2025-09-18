@@ -1,0 +1,91 @@
+/* ----------- Estilos Globales ----------- */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* degradado oscuro elegante */
+  color: #f5f5f5;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedores principales */
+.container {
+  background: rgba(255, 255, 255, 0.05); /* fondo sutil translúcido */
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Tarjetas */
+.card {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+}
+
+/* Inputs */
+.form-control {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 0.7rem;
+  padding: 0.8rem 1rem;
+}
+
+.form-control::placeholder {
+  color: #ddd;
+}
+
+/* Botones */
+.btn {
+  border-radius: 0.7rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #0056b3, #0096c7);
+}
+
+.btn-success {
+  background: linear-gradient(45deg, #28a745, #00d084);
+  border: none;
+}
+
+.btn-success:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #1c7430, #00a86b);
+}
+
+/* Enlaces */
+a, span {
+  color: #00c6ff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+a:hover, span:hover {
+  color: #66e0ff;
+}
+
+/* Títulos */
+h1, h2 {
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Línea divisoria */
+hr {
+  border: 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}

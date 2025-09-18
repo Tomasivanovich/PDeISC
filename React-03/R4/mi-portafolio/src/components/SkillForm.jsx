@@ -1,28 +1,32 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import useApi from "../hooks/useApi";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Toast from "./Toast";
 
 export default function SkillForm({ creatorId, onSave }) {
+  const api = useApi();
   const [skills, setSkills] = useState([]);
   const [form, setForm] = useState({ name: "", level: "" });
+  const [editingIndex, setEditingIndex] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
+  const [toast, setToast] = useState({ show: false, message: "", type: "success" });
+  const showToast = (message, type = "success") => setToast({ show: true, message, type });
+
+  // ------------------------
+  // Leer skills
+  // ------------------------
   useEffect(() => {
     if (!creatorId) return;
+
     const fetchSkills = async () => {
       setLoading(true);
-      setError(null);
       try {
-        const res = await fetch(`http://localhost:4000/api/skills/${creatorId}`);
-        // manejar respuestas no-ok
-        if (!res.ok) {
-          const text = await res.text(); // puede venir HTML
-          throw new Error(`Error ${res.status}: ${text}`);
-        }
-        const data = await res.json();
+        const data = await api.get(`/api/skills/${creatorId}`);
         setSkills(Array.isArray(data) ? data : []);
       } catch (err) {
-        console.error("❌ Error al cargar skills:", err);
-        setError("No se pudieron cargar las skills. Revisá la API.");
+        console.error(err);
+        showToast("No se pudieron cargar las skills.", "danger");
         setSkills([]);
       } finally {
         setLoading(false);
@@ -34,42 +38,88 @@ export default function SkillForm({ creatorId, onSave }) {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
+  // ------------------------
+  // Validación
+  // ------------------------
+  const validateForm = () => {
+    const nameRegex = /^[A-Za-z\s]{2,}$/;
+    if (!nameRegex.test(form.name)) {
+      showToast("El nombre de la skill debe tener al menos 2 letras y no contener números.", "danger");
+      return false;
+    }
+    const levelNum = Number(form.level);
+    if (form.level && (levelNum < 1 || levelNum > 100)) {
+      showToast("El nivel debe estar entre 1 y 100.", "danger");
+      return false;
+    }
+    return true;
+  };
+
+  // ------------------------
+  // Crear / Actualizar
+  // ------------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
+    if (!validateForm()) return;
+
     try {
-      const res = await fetch("http://localhost:4000/api/skills", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ creator_id: creatorId, ...form }),
-      });
-
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(`Error ${res.status}: ${text}`);
+      if (editingIndex !== null) {
+        const skillId = skills[editingIndex].id;
+        await api.put(`/api/skills/${skillId}`, form);
+        const updated = [...skills];
+        updated[editingIndex] = { id: skillId, creator_id: creatorId, ...form };
+        setSkills(updated);
+        setEditingIndex(null);
+        showToast("Skill actualizada correctamente", "success");
+      } else {
+        const data = await api.post(`/api/skills`, { creator_id: creatorId, ...form });
+        setSkills([...skills, { id: data.id, creator_id: creatorId, ...form }]);
+        showToast("Skill agregada correctamente", "success");
       }
-
-      const data = await res.json();
-      setSkills([...skills, { id: data.id, creator_id: creatorId, ...form }]);
       setForm({ name: "", level: "" });
       if (onSave) onSave({ creatorId, skills });
     } catch (err) {
-      console.error("❌ Error al crear skill:", err);
-      setError("No se pudo guardar la skill. Revisá la consola.");
+      console.error(err);
+      showToast("No se pudo guardar la skill.", "danger");
+    }
+  };
+
+  const handleEdit = (index) => {
+    setForm(skills[index]);
+    setEditingIndex(index);
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("¿Seguro que quieres eliminar esta skill?")) return;
+    try {
+      await api.del(`/api/skills/${id}`);
+      setSkills(skills.filter((s) => s.id !== id));
+      showToast("Skill eliminada", "success");
+    } catch (err) {
+      console.error(err);
+      showToast("No se pudo eliminar la skill.", "danger");
     }
   };
 
   return (
-    <div className="skill-form">
-      <h3>Skills</h3>
+    <div className="container mt-4">
+      <h3 className="mb-3 animate__animated animate__fadeIn">Skills</h3>
+
+      {/* Toast */}
+      <Toast
+        show={toast.show}
+        message={toast.message}
+        type={toast.type}
+        onClose={() => setToast({ show: false, message: "", type: toast.type })}
+      />
 
       {loading && <p>Cargando skills...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="animate__animated animate__fadeIn mb-3">
         <input
           type="text"
           name="name"
+          className="form-control mb-2"
           placeholder="Nombre de skill"
           value={form.name}
           onChange={handleChange}
@@ -78,21 +128,35 @@ export default function SkillForm({ creatorId, onSave }) {
         <input
           type="number"
           name="level"
+          className="form-control mb-2"
           placeholder="Nivel (1-100)"
           value={form.level}
           onChange={handleChange}
           min="1"
           max="100"
         />
-        <button type="submit">Agregar Skill</button>
+        <button type="submit" className="btn btn-primary w-100">
+          {editingIndex !== null ? "Actualizar" : "Agregar"} Skill
+        </button>
       </form>
 
       {!loading && skills.length === 0 && <p>No hay skills aún.</p>}
 
-      <ul>
-        {skills.map((skill) => (
-          <li key={skill.id}>
+      <ul className="list-group animate__animated animate__fadeIn">
+        {skills.map((skill, idx) => (
+          <li
+            key={skill.id}
+            className="list-group-item d-flex justify-content-between align-items-center"
+          >
             {skill.name} {skill.level ? `- Nivel: ${skill.level}` : ""}
+            <div>
+              <button className="btn btn-secondary btn-sm me-1" onClick={() => handleEdit(idx)}>
+                Editar
+              </button>
+              <button className="btn btn-danger btn-sm" onClick={() => handleDelete(skill.id)}>
+                Eliminar
+              </button>
+            </div>
           </li>
         ))}
       </ul>

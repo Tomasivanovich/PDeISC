@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import LoginSelector from "./pages/LoginSelector";
-import RegisterForm from "./components/RegisterForm";
-import PortfolioPage from "./pages/PortafolioPage";
+import RegisterCreatorForm from "./components/RegisterCreatorForm";
+import PortafolioPage from "./pages/PortafolioPage";
 import CreatorLogin from "./pages/CreatorLogin";
 import VisitorLogin from "./pages/VisitorLogin";
+import VisitorRegister from "./components/VisitorRegister";
+import VisitorSearchPortfolio from "./pages/VisitorSearchPortfolio";
 
 function App() {
   return (
@@ -13,14 +15,18 @@ function App() {
         <Route path="/login" element={<LoginSelector />} />
 
         {/* Registro */}
-        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/register" element={<RegisterCreatorForm />} />
+        <Route path="/register/visitor" element={<VisitorRegister />} />
 
         {/* Login específico */}
         <Route path="/login/creator" element={<CreatorLogin />} />
         <Route path="/login/visitor" element={<VisitorLogin />} />
 
         {/* Portafolio del creador */}
-        <Route path="/portfolio/:id" element={<PortfolioPage />} />
+        <Route path="/portfolio/:id" element={<PortafolioPage />} />
+
+        {/* Búsqueda de portafolio para visitantes */}
+        <Route path="/visitor/search" element={<VisitorSearchPortfolio />} />
 
         {/* Redirigir rutas desconocidas */}
         <Route path="*" element={<Navigate to="/login" />} />

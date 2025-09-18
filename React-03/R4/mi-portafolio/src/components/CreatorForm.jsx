@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
+import useApi from "../hooks/useApi";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Toast from "./Toast"; // <-- Importar componente
 
 export default function CreatorForm({ creatorId, onSave }) {
+  const { request } = useApi();
   const [form, setForm] = useState({
     name: "",
     title: "",
@@ -15,101 +19,166 @@ export default function CreatorForm({ creatorId, onSave }) {
   const [creator, setCreator] = useState(null);
   const [isEditing, setIsEditing] = useState(true);
 
-  const token = localStorage.getItem("token");
+  const [toast, setToast] = useState({ show: false, message: "", type: "success" });
 
-  // 🔹 Cargar creador existente
+  const showToast = (message, type = "success") => {
+    setToast({ show: true, message, type });
+  };
+
+  // ----------------------------
+  // Cargar creador existente
+  // ----------------------------
   useEffect(() => {
     if (!creatorId) return;
 
     const fetchCreator = async () => {
-      try {
-        const res = await fetch(`http://localhost:4000/api/creators/${creatorId}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const data = await res.json();
-        if (res.ok || !data.error) {
-          setForm({
-            name: data.name || "",
-            title: data.title || "",
-            bio: data.bio || "",
-            profile_image: data.profile_image || "",
-            email: data.email || "",
-            password: "",
-            phone: data.phone || "",
-            linkedin: data.linkedin || "",
-            github: data.github || "",
-          });
-          setCreator(data);
-          setIsEditing(false);
-        } else {
-          alert(data.error || "Error al cargar creador");
-        }
-      } catch (err) {
-        console.error("❌ Error al cargar creador:", err);
-      }
-    };
-
-    fetchCreator();
-  }, [creatorId, token]);
-
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const method = creatorId ? "PUT" : "POST";
-      const url = creatorId
-        ? `http://localhost:4000/api/creators/${creatorId}`
-        : "http://localhost:4000/api/creators/portafolio";
-
-      const res = await fetch(url, {
-        method,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(form),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        alert(data.error || "Error al guardar");
+      const data = await request(`/api/creators/${creatorId}`, "GET");
+      if (!data || data.error) {
+        showToast(data?.error || "Error al cargar creador", "danger");
         return;
       }
 
-      setCreator({ ...form, id: data.id || creatorId });
+      setForm({
+        name: data.name || "",
+        title: data.title || "",
+        bio: data.bio || "",
+        profile_image: data.profile_image || "",
+        email: data.email || "",
+        password: "",
+        phone: data.phone || "",
+        linkedin: data.linkedin || "",
+        github: data.github || "",
+      });
+      setCreator(data);
       setIsEditing(false);
-      if (onSave) onSave({ ...form, id: data.id || creatorId });
-    } catch (err) {
-      console.error("❌ Error al guardar creador:", err);
+    };
+
+    fetchCreator();
+  }, [creatorId]);
+
+  // ----------------------------
+  // Validaciones de campos
+  // ----------------------------
+  const validateForm = () => {
+    const nameRegex = /^[A-Za-z\s]{3,}$/;
+    const titleRegex = /^[A-Za-z\s]+$/;
+    const phoneRegex = /^[0-9]+$/;
+    const urlRegex = /^(https?:\/\/[^\s$.?#].[^\s]*)$/i;
+
+    if (!nameRegex.test(form.name)) {
+      showToast("El nombre debe tener al menos 3 letras y no contener números.", "danger");
+      return false;
     }
+    if (!titleRegex.test(form.title)) {
+      showToast("El título no puede contener números.", "danger");
+      return false;
+    }
+    if (!phoneRegex.test(form.phone)) {
+      showToast("El teléfono debe contener solo números.", "danger");
+      return false;
+    }
+    if (form.linkedin && !urlRegex.test(form.linkedin)) {
+      showToast("El LinkedIn debe ser un enlace válido.", "danger");
+      return false;
+    }
+    if (form.github && !urlRegex.test(form.github)) {
+      showToast("El GitHub debe ser un enlace válido.", "danger");
+      return false;
+    }
+    return true;
   };
 
+  // ----------------------------
+  // Guardar / Actualizar creador
+  // ----------------------------
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    const method = creatorId ? "PUT" : "POST";
+    const url = creatorId ? `/api/creators/${creatorId}` : "/api/creators/portafolio";
+    const data = await request(url, method, form);
+
+    if (!data || data.error) {
+      showToast(data?.error || "Error al guardar", "danger");
+      return;
+    }
+
+    setCreator({ ...form, id: data.id || creatorId });
+    setIsEditing(false);
+    showToast("Datos guardados correctamente", "success");
+    if (onSave) onSave({ ...form, id: data.id || creatorId });
+  };
+
+  // ----------------------------
+  // Render
+  // ----------------------------
   return (
-    <div className="form-box">
-      <h2>Datos del Creador</h2>
+    <div className="container mt-4">
+      <h2 className="mb-3">Datos del Creador</h2>
+
+      <Toast
+        show={toast.show}
+        message={toast.message}
+        type={toast.type}
+        onClose={() => setToast({ show: false, message: "", type: toast.type })}
+      />
+
       {isEditing ? (
         <form onSubmit={handleSubmit}>
-          <input type="text" name="name" placeholder="Nombre" value={form.name} onChange={handleChange} required />
-          <input type="text" name="title" placeholder="Título profesional" value={form.title} onChange={handleChange} required />
-          <textarea name="bio" placeholder="Biografía" value={form.bio} onChange={handleChange} required />
-          <input type="text" name="profile_image" placeholder="URL de imagen de perfil" value={form.profile_image} onChange={handleChange} />
-          <input type="text" name="phone" placeholder="Teléfono" value={form.phone} onChange={handleChange} required />
-          <input type="text" name="linkedin" placeholder="LinkedIn" value={form.linkedin} onChange={handleChange} required />
-          <input type="text" name="github" placeholder="GitHub" value={form.github} onChange={handleChange} required />
-          <button type="submit">{creatorId ? "Actualizar" : "Guardar"}</button>
+          {[
+            { name: "name", placeholder: "Nombre" },
+            { name: "title", placeholder: "Título profesional" },
+            { name: "bio", placeholder: "Biografía", type: "textarea" },
+            { name: "profile_image", placeholder: "URL de imagen de perfil" },
+            { name: "phone", placeholder: "Teléfono" },
+            { name: "linkedin", placeholder: "LinkedIn" },
+            { name: "github", placeholder: "GitHub" },
+          ].map((field) =>
+            field.type === "textarea" ? (
+              <textarea
+                key={field.name}
+                className="form-control mb-2"
+                name={field.name}
+                placeholder={field.placeholder}
+                value={form[field.name]}
+                onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
+                required
+              />
+            ) : (
+              <input
+                key={field.name}
+                type="text"
+                className="form-control mb-2"
+                name={field.name}
+                placeholder={field.placeholder}
+                value={form[field.name]}
+                onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
+                required={["name", "title", "phone"].includes(field.name)}
+              />
+            )
+          )}
+          <button className="btn btn-primary mt-2">{creatorId ? "Actualizar" : "Guardar"}</button>
         </form>
       ) : (
-        <div className="creator-data">
+        <div className="card p-3">
           <p><b>Nombre:</b> {creator.name}</p>
           <p><b>Título:</b> {creator.title}</p>
           <p><b>Bio:</b> {creator.bio}</p>
-          {creator.profile_image && <img src={creator.profile_image} alt="Perfil" style={{ width: "120px", borderRadius: "10px" }} />}
+          {creator.profile_image && (
+            <img
+              src={creator.profile_image}
+              alt="Perfil"
+              className="img-thumbnail mb-2"
+              style={{ width: "120px" }}
+            />
+          )}
           <p><b>Teléfono:</b> {creator.phone}</p>
           <p><b>LinkedIn:</b> {creator.linkedin}</p>
           <p><b>GitHub:</b> {creator.github}</p>
-          <button onClick={() => setIsEditing(true)}>Editar</button>
+          <button className="btn btn-secondary mt-2" onClick={() => setIsEditing(true)}>
+            Editar
+          </button>
         </div>
       )}
     </div>

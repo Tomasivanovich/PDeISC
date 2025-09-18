@@ -70,6 +70,7 @@ export default function VisitorSearchPortfolio() {
             <p className="text-muted">{portfolio.creator.title}</p>
             <p className="text-muted">{portfolio.creator.bio}</p>
             <p className="text-muted">{portfolio.creator.phone}</p>
+            <p className="text-muted">{portfolio.creator.profile_image}</p>
           </div>
 
           {/* Experiencia */}

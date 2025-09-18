@@ -6,23 +6,17 @@ import Toast from "./Toast";
 export default function ProjectForm({ creatorId, onSave }) {
   const api = useApi();
   const [projects, setProjects] = useState([]);
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    image: "",
-    link: "",
-  });
+  const [form, setForm] = useState({ title: "", description: "", image: "", link: "" });
   const [editingIndex, setEditingIndex] = useState(null);
 
   const [toast, setToast] = useState({ show: false, message: "", type: "success" });
   const showToast = (message, type = "success") => setToast({ show: true, message, type });
 
-  // ------------------------
+  const [confirmDelete, setConfirmDelete] = useState({ show: false, id: null });
+
   // Leer proyectos
-  // ------------------------
   useEffect(() => {
     if (!creatorId) return;
-
     const fetchProjects = async () => {
       try {
         const data = await api.get(`/api/projects/${creatorId}`);
@@ -31,35 +25,25 @@ export default function ProjectForm({ creatorId, onSave }) {
         showToast(err.message || "Error al cargar proyectos", "danger");
       }
     };
-
     fetchProjects();
   }, [creatorId]);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  // ------------------------
   // Validaciones
-  // ------------------------
   const validateForm = () => {
     if (form.title.length < 2 || !isNaN(form.title)) {
       showToast("El título debe tener al menos 2 caracteres y no ser solo números", "danger");
       return false;
     }
-
     if (form.link) {
-      try {
-        new URL(form.link);
-      } catch {
-        showToast("El link debe ser una URL válida", "danger");
-        return false;
-      }
+      try { new URL(form.link); } 
+      catch { showToast("El link debe ser una URL válida", "danger"); return false; }
     }
     return true;
   };
 
-  // ------------------------
   // Crear / Actualizar
-  // ------------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -68,7 +52,6 @@ export default function ProjectForm({ creatorId, onSave }) {
       if (editingIndex !== null) {
         const projId = projects[editingIndex].id;
         await api.put(`/api/projects/${projId}`, form);
-
         const updated = [...projects];
         updated[editingIndex] = { id: projId, ...form };
         setProjects(updated);
@@ -80,7 +63,6 @@ export default function ProjectForm({ creatorId, onSave }) {
         setProjects([...projects, { id: data.id, ...form }]);
         showToast("Proyecto agregado correctamente", "success");
       }
-
       setForm({ title: "", description: "", image: "", link: "" });
       if (onSave) onSave({ creatorId, projects });
     } catch (err) {
@@ -88,31 +70,29 @@ export default function ProjectForm({ creatorId, onSave }) {
     }
   };
 
-  // ------------------------
   // Editar proyecto
-  // ------------------------
   const handleEdit = (index) => {
     setForm(projects[index]);
     setEditingIndex(index);
   };
 
-  // ------------------------
-  // Eliminar proyecto
-  // ------------------------
-  const handleDelete = async (id) => {
-    if (!window.confirm("¿Seguro que quieres eliminar este proyecto?")) return;
+  // Mostrar modal de confirmación
+  const handleDeleteClick = (id) => setConfirmDelete({ show: true, id });
+
+  // Confirmar eliminación
+  const confirmDeleteProject = async () => {
+    const id = confirmDelete.id;
     try {
       await api.del(`/api/projects/${id}`);
       setProjects(projects.filter((p) => p.id !== id));
       showToast("Proyecto eliminado", "success");
     } catch (err) {
       showToast(err.message || "Error al eliminar proyecto", "danger");
+    } finally {
+      setConfirmDelete({ show: false, id: null });
     }
   };
 
-  // ------------------------
-  // Render
-  // ------------------------
   return (
     <div className="container mt-4">
       <h2 className="mb-3">Proyectos</h2>
@@ -125,22 +105,18 @@ export default function ProjectForm({ creatorId, onSave }) {
         onClose={() => setToast({ show: false, message: "", type: toast.type })}
       />
 
+      {/* Formulario */}
       <form onSubmit={handleSubmit} className="animate__animated animate__fadeIn mb-4">
-        {[
-          { name: "title", placeholder: "Título" },
-          { name: "description", placeholder: "Descripción" },
-          { name: "image", placeholder: "URL Imagen" },
-          { name: "link", placeholder: "Link" },
-        ].map((field) => (
+        {["title", "description", "image", "link"].map((field) => (
           <input
-            key={field.name}
+            key={field}
             type="text"
             className="form-control mb-2"
-            name={field.name}
-            placeholder={field.placeholder}
-            value={form[field.name]}
+            name={field}
+            placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+            value={form[field]}
             onChange={handleChange}
-            required={field.name === "title"}
+            required={field === "title"}
           />
         ))}
         <button type="submit" className="btn btn-primary">
@@ -148,6 +124,7 @@ export default function ProjectForm({ creatorId, onSave }) {
         </button>
       </form>
 
+      {/* Lista de proyectos */}
       <div className="list-group animate__animated animate__fadeIn">
         {projects.map((p, idx) => (
           <div key={p.id} className="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-2">
@@ -159,11 +136,35 @@ export default function ProjectForm({ creatorId, onSave }) {
             </div>
             <div className="mt-2 mt-md-0">
               <button className="btn btn-secondary btn-sm me-1" onClick={() => handleEdit(idx)}>Editar</button>
-              <button className="btn btn-danger btn-sm" onClick={() => handleDelete(p.id)}>Eliminar</button>
+              <button className="btn btn-danger btn-sm" onClick={() => handleDeleteClick(p.id)}>Eliminar</button>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Modal de confirmación */}
+      {confirmDelete.show && (
+        <div className="modal d-block" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Confirmar eliminación</h5>
+              </div>
+              <div className="modal-body">
+                <p>¿Seguro que quieres eliminar este proyecto?</p>
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-secondary" onClick={() => setConfirmDelete({ show: false, id: null })}>
+                  Cancelar
+                </button>
+                <button className="btn btn-danger" onClick={confirmDeleteProject}>
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

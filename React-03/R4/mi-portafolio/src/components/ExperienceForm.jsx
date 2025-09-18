@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useApi from "../hooks/useApi";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Toast from "./Toast"; // <-- Importar el componente Toast
+import Toast from "./Toast";
 
 export default function ExperienceForm({ creatorId, onSave }) {
   const { request } = useApi();
@@ -19,9 +19,9 @@ export default function ExperienceForm({ creatorId, onSave }) {
   const [toast, setToast] = useState({ show: false, message: "", type: "success" });
   const showToast = (message, type = "success") => setToast({ show: true, message, type });
 
-  // ------------------------
-  // Leer experiencias
-  // ------------------------
+  // NUEVO: Estado para confirmar eliminación
+  const [confirmDelete, setConfirmDelete] = useState(null);
+
   useEffect(() => {
     if (!creatorId) return;
     const fetchExperiences = async () => {
@@ -37,9 +37,6 @@ export default function ExperienceForm({ creatorId, onSave }) {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  // ------------------------
-  // Validaciones
-  // ------------------------
   const validateForm = () => {
     const currentYear = new Date().getFullYear();
     if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/.test(form.company)) {
@@ -61,9 +58,6 @@ export default function ExperienceForm({ creatorId, onSave }) {
     return true;
   };
 
-  // ------------------------
-  // Crear / Actualizar
-  // ------------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -95,9 +89,6 @@ export default function ExperienceForm({ creatorId, onSave }) {
     if (onSave) onSave({ creatorId, experiences });
   };
 
-  // ------------------------
-  // Editar experiencia
-  // ------------------------
   const handleEdit = (index) => {
     setForm(experiences[index]);
     setEditingIndex(index);
@@ -106,25 +97,27 @@ export default function ExperienceForm({ creatorId, onSave }) {
   // ------------------------
   // Eliminar experiencia
   // ------------------------
-  const handleDelete = async (id) => {
-    if (!window.confirm("¿Seguro que quieres eliminar esta experiencia?")) return;
-    const data = await request(`/api/experience/${id}`, "DELETE");
-    if (!data || data.error) {
-      showToast(data?.error || "Error al eliminar experiencia", "danger");
-      return;
-    }
-    setExperiences(experiences.filter((exp) => exp.id !== id));
-    showToast("Experiencia eliminada", "success");
+  const handleDelete = (id) => {
+    setConfirmDelete(id); // Activamos el mensaje de confirmación
   };
 
-  // ------------------------
-  // Render
-  // ------------------------
+  const confirmDeletion = async (confirm) => {
+    if (confirm && confirmDelete !== null) {
+      const data = await request(`/api/experience/${confirmDelete}`, "DELETE");
+      if (!data || data.error) {
+        showToast(data?.error || "Error al eliminar experiencia", "danger");
+      } else {
+        setExperiences(experiences.filter((exp) => exp.id !== confirmDelete));
+        showToast("Experiencia eliminada", "success");
+      }
+    }
+    setConfirmDelete(null); // Cerramos confirmación
+  };
+
   return (
     <div className="container mt-4">
       <h2 className="mb-3">Experiencia Laboral</h2>
 
-      {/* Toast */}
       <Toast
         show={toast.show}
         message={toast.message}
@@ -169,7 +162,10 @@ export default function ExperienceForm({ creatorId, onSave }) {
 
       <div className="list-group animate__animated animate__fadeIn">
         {experiences.map((exp, idx) => (
-          <div key={exp.id} className="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-2">
+          <div
+            key={exp.id}
+            className="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-2"
+          >
             <div>
               <p><b>Empresa:</b> {exp.company}</p>
               <p><b>Cargo:</b> {exp.role}</p>
@@ -184,6 +180,17 @@ export default function ExperienceForm({ creatorId, onSave }) {
           </div>
         ))}
       </div>
+
+      {/* NUEVO: Confirmación de eliminación */}
+      {confirmDelete && (
+        <div className="alert alert-warning d-flex justify-content-between align-items-center mt-3">
+          <span>¿Seguro que quieres eliminar esta experiencia?</span>
+          <div>
+            <button className="btn btn-sm btn-danger me-2" onClick={() => confirmDeletion(true)}>Sí</button>
+            <button className="btn btn-sm btn-secondary" onClick={() => confirmDeletion(false)}>No</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

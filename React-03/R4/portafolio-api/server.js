@@ -5,9 +5,9 @@ const app = express();
 
 // Middleware CORS configurado para tu frontend en Vercel
 app.use(cors({
-  origin: "https://portafolio-lime-six-91.vercel.app", // tu dominio frontend
+  origin: "https://portafolio-fpj0rfp2b-tomasivanovichs-projects.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"], // si usás JWT
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 

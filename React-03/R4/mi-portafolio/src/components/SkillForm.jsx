@@ -13,9 +13,9 @@ export default function SkillForm({ creatorId, onSave }) {
   const [toast, setToast] = useState({ show: false, message: "", type: "success" });
   const showToast = (message, type = "success") => setToast({ show: true, message, type });
 
-  // ------------------------
-  // Leer skills
-  // ------------------------
+  // NUEVO: Estado para confirmar eliminación
+  const [confirmDelete, setConfirmDelete] = useState(null);
+
   useEffect(() => {
     if (!creatorId) return;
 
@@ -38,9 +38,6 @@ export default function SkillForm({ creatorId, onSave }) {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  // ------------------------
-  // Validación
-  // ------------------------
   const validateForm = () => {
     const nameRegex = /^[A-Za-z\s]{2,}$/;
     if (!nameRegex.test(form.name)) {
@@ -55,9 +52,6 @@ export default function SkillForm({ creatorId, onSave }) {
     return true;
   };
 
-  // ------------------------
-  // Crear / Actualizar
-  // ------------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -89,23 +83,31 @@ export default function SkillForm({ creatorId, onSave }) {
     setEditingIndex(index);
   };
 
-  const handleDelete = async (id) => {
-    if (!window.confirm("¿Seguro que quieres eliminar esta skill?")) return;
-    try {
-      await api.del(`/api/skills/${id}`);
-      setSkills(skills.filter((s) => s.id !== id));
-      showToast("Skill eliminada", "success");
-    } catch (err) {
-      console.error(err);
-      showToast("No se pudo eliminar la skill.", "danger");
+  // ------------------------
+  // Eliminar skill
+  // ------------------------
+  const handleDelete = (id) => {
+    setConfirmDelete(id); // activamos el mensaje de confirmación
+  };
+
+  const confirmDeletion = async (confirm) => {
+    if (confirm && confirmDelete !== null) {
+      try {
+        await api.del(`/api/skills/${confirmDelete}`);
+        setSkills(skills.filter((s) => s.id !== confirmDelete));
+        showToast("Skill eliminada", "success");
+      } catch (err) {
+        console.error(err);
+        showToast("No se pudo eliminar la skill.", "danger");
+      }
     }
+    setConfirmDelete(null); // cerramos confirmación
   };
 
   return (
     <div className="container mt-4">
       <h3 className="mb-3 animate__animated animate__fadeIn">Skills</h3>
 
-      {/* Toast */}
       <Toast
         show={toast.show}
         message={toast.message}
@@ -160,6 +162,17 @@ export default function SkillForm({ creatorId, onSave }) {
           </li>
         ))}
       </ul>
+
+      {/* NUEVO: Confirmación de eliminación */}
+      {confirmDelete && (
+        <div className="alert alert-warning d-flex justify-content-between align-items-center mt-3">
+          <span>¿Seguro que quieres eliminar esta skill?</span>
+          <div>
+            <button className="btn btn-sm btn-danger me-2" onClick={() => confirmDeletion(true)}>Sí</button>
+            <button className="btn btn-sm btn-secondary" onClick={() => confirmDeletion(false)}>No</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
